@@ -4,7 +4,6 @@ import { Ionicons } from '@expo/vector-icons';
 import axios from "axios";
 
 import FavoriteBook from '../FavoriteBook';
-import FavoriteBookFuc from '../FavoriteBookFuc';
 
 const DATA = [    
     {key: 'C프로그래밍',
@@ -51,12 +50,10 @@ export default class LikeTab extends React.Component{
             <View style = {styles.container}>
                 <View style={styles.headerContainer}>
                     <Text style={styles.headerTextStyle}>관심목록</Text>
-                    <Button title={'추가'}/>
                 </View>
                 <View style={styles.bodyContainer}>
                     <FlatList data = {DATA}
                          renderItem={({item}) => <FavoriteBook name={item.key}/>} />
-                    {/* <FavoriteBookFuc name = {'소프트웨어교육론'}/> */}
                 </View>
             </View>
 

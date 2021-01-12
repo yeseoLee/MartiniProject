@@ -18,6 +18,10 @@ export default class FavoriteBook extends React.Component{
         }
     };
     
+    alertDelete = () => {
+        Alert.alert("관심목록", "삭제되었습니다")
+    }
+
     render() {
         return (
         <View style={styles.ItemStyle}>
@@ -25,7 +29,7 @@ export default class FavoriteBook extends React.Component{
             <Text style={styles.bookDescribe}>{this.props.name}</Text>
             <View style={justifyContent='space-around'}>
                 <TouchableOpacity>
-                    <Ionicons name = 'heart-outline' size = {50}/>
+                    <Ionicons name = 'heart-outline' size = {50} onPress={this.alertDelete}/>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Ionicons name = 'chatbubble-ellipses-outline' onPress={this.getSMS} size = {50}/>
@@ -41,12 +45,11 @@ const styles = StyleSheet.create({
     ItemStyle:{
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: 'gray',
+        backgroundColor: 'white',
         flexDirection: 'row',
         margin:5,
         paddingLeft: 15,
-        paddingRight: 15,
-        borderRadius: 20
+        paddingRight: 15
     },    
     bookImage:{
         width: '20%',
