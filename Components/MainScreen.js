@@ -4,10 +4,10 @@ import { Ionicons } from '@expo/vector-icons';
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 
-import HomeTab from './AppTabNavigation/HomeTab';
-import LikeTab from './AppTabNavigation/LikeTab';
-import ProfileTab from './AppTabNavigation/ProfileTab';
-import AddTab from './AppTabNavigation/AddTab';
+import HomeTab from '../AppTabNavigation/HomeTab';
+import LikeTab from '../AppTabNavigation/LikeTab';
+import ProfileTab from '../AppTabNavigation/ProfileTab';
+import AddTab from '../AppTabNavigation/AddTab';
 
 //하단 탭 네비게이션
 const AppTabNavigator = createBottomTabNavigator({

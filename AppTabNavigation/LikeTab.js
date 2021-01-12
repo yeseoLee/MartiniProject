@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, Button, FlatList} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import axios from "axios";
 
-import FavoriteBook from '../FavoriteBook';
+import FavoriteBook from './Like/FavoriteBook';
 
 const DATA = [    
     {key: 'C프로그래밍',

@@ -25,7 +25,7 @@ export default class FavoriteBook extends React.Component{
     render() {
         return (
         <View style={styles.ItemStyle}>
-            <Image style={styles.bookImage} source={require("../bookImg.jpg")} />
+            <Image style={styles.bookImage} source={require("./bookImg.jpg")} />
             <Text style={styles.bookDescribe}>{this.props.name}</Text>
             <View style={justifyContent='space-around'}>
                 <TouchableOpacity>

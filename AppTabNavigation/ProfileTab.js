@@ -16,7 +16,7 @@ export default class ProfileTab extends React.Component{
             <View style={{height: 150, flexDirection: 'row', alignItems: 'center'}}>
               <View style={{width: 100}}>
                 <View style={{width: 100, height: 100}} >
-                  <Image source={require('./images/avatar.png')} style={{width: 100, height: 100}}/>
+                  <Image source={require('./Profile/images/avatar.png')} style={{width: 100, height: 100}}/>
                 </View>
               </View>
               <View style={{flex: 1, marginLeft: 10}}>
@@ -27,7 +27,7 @@ export default class ProfileTab extends React.Component{
             </View>
             <View style={{height: 50, flexDirection: 'row', alignItems: 'center'}}>
               <View style={{flex: 1, height: 50, flexDirection: 'row', borderWidth: 0.5, borderLeftWidth: 0, borderRightWidth: 0, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
-                <Image source={require('./images/list.png')} style={{width: 30, height: 25}}/>
+                <Image source={require('./Profile/images/list.png')} style={{width: 30, height: 25}}/>
                 <Text style={{marginLeft: 5}}>내가 쓴 글</Text>
               </View>
             </View>
@@ -37,7 +37,7 @@ export default class ProfileTab extends React.Component{
                 <View style={styles.whatbook}>
                   <View>
                   <Image style={styles.image}
-                  source={require('./images/c.png')}/>
+                  source={require('./Profile/images/c.png')}/>
                   </View>
                   <View style={styles.bookcontent}>
                   <Text>C프로그래밍</Text>
@@ -46,7 +46,7 @@ export default class ProfileTab extends React.Component{
                 <View style={styles.whatbook}>
                   <View>
                     <Image style={styles.image}
-                    source={require('./images/image2.png')}/>
+                    source={require('./Profile/images/image2.png')}/>
                   </View>
                   <View style={styles.bookcontent}>
                     <Text>미분적분학</Text>
@@ -55,7 +55,7 @@ export default class ProfileTab extends React.Component{
                 <View style={styles.whatbook}>
                   <View>
                     <Image style={styles.image}
-                    source={require('./images/image2.png')}/>
+                    source={require('./Profile/images/image2.png')}/>
                   </View>
                   <View style={styles.bookcontent}>
                     <Text>미분적분학</Text>
