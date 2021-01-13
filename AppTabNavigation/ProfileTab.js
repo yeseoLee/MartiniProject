@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 export default class ProfileTab extends React.Component{
     static navigationOptions = {
         tabBarIcon: ({tintColor}) => (
-            <Ionicons name = 'person' size = {30} style = {{color:tintColor}}/>
+            <Ionicons name = 'person' size = {30} style = {{color:'#303D74'}}/> //210114 컬러 변경(아현)
         )
     }
     

@@ -11,10 +11,10 @@ import AddTab from '../AppTabNavigation/AddTab';
 
 //하단 탭 네비게이션
 const AppTabNavigator = createBottomTabNavigator({
-    HomeTab: {screen:HomeTab},
-    LikeTab: {screen:LikeTab},
-    AddTab: {screen:AddTab},
-    ProfileTab: {screen:ProfileTab},
+    Home: {screen:HomeTab}, //210114 네이밍변경(아현)
+    Add: {screen:AddTab}, //210114 네이밍,순서변경(아현)
+    Like: {screen:LikeTab}, //210114 네이밍,순서변경(아현)
+    Profile: {screen:ProfileTab}, //210114 네이밍변경(아현)
 });
 const AppTabContainet = createAppContainer(AppTabNavigator);
 
@@ -22,7 +22,7 @@ export default class MainScreen extends React.Component{
 
     //상단 네비게이션
     static navigationOptions =  {
-        headerLeft: () => (<Ionicons name = 'list' size = {35} style = {{paddingLeft:10}}/>),
+        headerLeft: () => (<Ionicons name = "reorder-four-outline" size = {35} style = {{paddingLeft:10}}/>), //210114 아이콘 변경(아현)
         title:'Library DataScience'
     }
 
