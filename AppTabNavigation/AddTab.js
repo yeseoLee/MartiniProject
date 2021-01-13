@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 export default class AddTab extends React.Component{
     static navigationOptions = {
         tabBarIcon: ({tintColor}) => (
-            <Ionicons name = 'add-circle-outline' size = {26} style = {{color:tintColor}}/>
+            <Ionicons name = 'add-outline' size = {26} style = {{color:tintColor}}/>
         )
     }
     
