@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text, Button, Platform} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import {createAppContainer} from 'react-navigation';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
+import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 
 import HomeTab from '../AppTabNavigation/HomeTab';
 import LikeTab from '../AppTabNavigation/LikeTab';
@@ -10,13 +10,15 @@ import ProfileTab from '../AppTabNavigation/ProfileTab';
 import AddTab from '../AppTabNavigation/AddTab';
 
 //하단 탭 네비게이션
-const AppTabNavigator = createBottomTabNavigator({
+const AppTabNavigator = createMaterialTopTabNavigator({
     Home: {screen:HomeTab}, //210114 네이밍변경(아현)
     Add: {screen:AddTab}, //210114 네이밍,순서변경(아현)
     Like: {screen:LikeTab}, //210114 네이밍,순서변경(아현)
     Profile: {screen:ProfileTab}, //210114 네이밍변경(아현)
 }, {
+    animationEnabled: true,
     swipeEnabled: true,
+    tabBarPosition: "bottom",
     tabBarOptions: {
         style:{
             backgroundColor:'white'
