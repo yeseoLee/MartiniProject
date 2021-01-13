@@ -18,7 +18,7 @@ export default class HomeTab extends React.Component{
 
     static navigationOptions = {
         tabBarIcon: ({tintColor}) => (
-            <Ionicons name = 'ios-home' size = {25} style = {{color:tintColor}}/> //210114 컬러 변경(아현)
+            <Ionicons name = 'ios-home' size = {26} style = {{color:tintColor}}/>
         )
     }
     
