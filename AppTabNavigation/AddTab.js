@@ -16,7 +16,7 @@ export default class AddTab extends React.Component{
     alertSave = () => {
         Alert.alert(
             "글쓰기",
-            "도서명 : 밍밍 프로그래밍 \n 출판사 : 마티니 출판 \n 수업과목 : 고급 C 프로그래밍 \n 판매가격 : 10,000원 \n 훼손상태 : 표지 낙서 약간 \n 연락처 : 01090655436 \n 사진 \n 저장하시겠습니까?",
+            " 도서명 : 밍밍 프로그래밍 \n 출판사 : 마티니 출판 \n 수업과목 : 고급 C 프로그래밍 \n 판매가격 : 10,000원 \n 훼손상태 : 표지 낙서 약간 \n 연락처 : 01090655436 \n 사진 \n\n 저장하시겠습니까?",
             [
                 {text: '아니오', onPress: () => null},
                 {text: '예', onPress: this.props.navigation.goBack()}, // 21.01.15 아니오 누르면 에러 안 뜸 / 예 누르면 에러 뜸 
