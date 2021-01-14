@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {Container, Header, Title, Content, Icon, Left, Button} from 'native-base';
+import {View, Text, StyleSheet, StatusBar} from 'react-native';
+import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon} from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 // import uuid from 'react-uuid';
-
+const brandPrimary = 'white'
 export default class HomeTab extends React.Component{
     
     state = {
@@ -25,8 +25,9 @@ export default class HomeTab extends React.Component{
     
     render() {
         return (
+            <StatusBar backgroundColor='black'/>,
             <Container>
-                <Header>
+                <Header style={styles.header}>
                     <Left>
                         <Button transparent>
                             <Ionicons name = "reorder-four-outline" 
@@ -34,6 +35,9 @@ export default class HomeTab extends React.Component{
                                 style = {{color:"#303D74"}}/>
                         </Button>
                     </Left>
+                    <Body>
+                        
+                    </Body>
                 </Header>
             </Container>
         );
@@ -45,5 +49,8 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:'center',
         justifyContent: 'center',
+    },
+    header:{
+        backgroundColor: 'white',
     }
 });
