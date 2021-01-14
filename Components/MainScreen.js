@@ -15,6 +15,26 @@ const AppTabNavigator = createBottomTabNavigator({
     Add: {screen:AddTab}, 
     Like: {screen:LikeTab},
     Profile: {screen:ProfileTab}, 
+}, {
+    swipeEnabled: true,
+    tabBarOptions: {
+        style:{
+            backgroundColor:'white'
+        },
+        iconStyle: {
+            ...Platform.select({
+                ios:{
+                    height: 35,
+                    marginBottom: 20
+                }
+            })
+        },
+        activeTintColor: '#303D74',
+        inactiveTintColor: '#d1cece',
+        upperCaseLabel: false,
+        showLabel: false,
+        showIcon: true,
+    }
 });
 const AppTabContainet = createAppContainer(AppTabNavigator);
 
