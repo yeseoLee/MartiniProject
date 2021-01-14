@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
+import {Container, Header, Title, Content, Icon, Left, Button} from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 // import uuid from 'react-uuid';
 
@@ -24,11 +25,17 @@ export default class HomeTab extends React.Component{
     
     render() {
         return (
-            <View style = {styles.container}>
-                <Text>홈</Text>
-                <Button title='관심목록 추가'/>
-            </View>
-
+            <Container>
+                <Header>
+                    <Left>
+                        <Button transparent>
+                            <Ionicons name = "reorder-four-outline" 
+                                size = {30}
+                                style = {{color:"#303D74"}}/>
+                        </Button>
+                    </Left>
+                </Header>
+            </Container>
         );
     }
 }
