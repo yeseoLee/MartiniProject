@@ -45,7 +45,13 @@ export default class MainScreen extends React.Component{
 
     //상단 네비게이션
     static navigationOptions =  {
-        headerLeft: () => (<Ionicons name = "reorder-four-outline" size = {30} style = {{color:"#303D74"}}/>),
+        headerLeft: () => (
+             <Ionicons name = "reorder-four-outline" 
+                            size = {30}
+                            style = {{color:"#303D74"}, {marginLeft: 10}}/>
+            ),
+
+          
         title:'Library DataScience'
     }
 
