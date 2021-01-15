@@ -4787,7 +4787,7 @@
   dependencies:
     "lodash" "^4.17.15"
 
-"react-native-gesture-handler@~1.8.0":
+"react-native-gesture-handler@^1.0.12", "react-native-gesture-handler@~1.8.0":
   "integrity" "sha512-E2FZa0qZ5Bi0Z8Jg4n9DaFomHvedSjwbO2DPmUUHYRy1lH2yxXUpSrqJd6yymu+Efzmjg2+JZzsjFYA2Iq8VEQ=="
   "resolved" "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-1.8.0.tgz"
   "version" "1.8.0"
@@ -4802,7 +4802,7 @@
   "resolved" "https://registry.npmjs.org/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz"
   "version" "1.3.1"
 
-"react-native-reanimated@~1.13.0":
+"react-native-reanimated@^1.0.0", "react-native-reanimated@~1.13.0":
   "integrity" "sha512-O+WhgxSjOIzcVdAAvx+h2DY331Ek1knKlaq+jsNLpC1fhRy9XTdOObovgob/aF2ve9uJfPEawCx8381g/tUJZQ=="
   "resolved" "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-1.13.2.tgz"
   "version" "1.13.2"
@@ -4821,7 +4821,7 @@
   dependencies:
     "hoist-non-react-statics" "^2.3.1"
 
-"react-native-screens@~2.15.0":
+"react-native-screens@>=1.0.0 || >= 2.0.0-alpha.0 || >= 2.0.0-beta.0 || >= 2.0.0", "react-native-screens@~2.15.0":
   "integrity" "sha512-qTSQPy0WKHtlb8xt5gY0Gt6sdvfQUQAnFSqgsggW9UEvySbkHzpqOrOYNA79Ca8oXO0dCFwp6X8buIiDefa7+Q=="
   "resolved" "https://registry.npmjs.org/react-native-screens/-/react-native-screens-2.15.0.tgz"
   "version" "2.15.0"
@@ -4892,6 +4892,11 @@
     "use-subscription" "^1.0.0"
     "whatwg-fetch" "^3.0.0"
 
+"react-navigation-drawer@^2.6.0":
+  "integrity" "sha512-GvHHqH8Aw9yRpJ0xc/7sPxRoGs0CZu/01THRfwY+qzrP3mP/V0GeFnL5Y2+EFd5SLrKjbQho8GmP9SEX7xVrig=="
+  "resolved" "https://registry.npmjs.org/react-navigation-drawer/-/react-navigation-drawer-2.6.0.tgz"
+  "version" "2.6.0"
+
 "react-navigation-stack@^2.10.2":
   "integrity" "sha512-mkJnMFYUyE4JAMGpQO/tOX8SUpckdNkrwgK+5prNwdCKSUY2EqqYv1f9OHUjbhFd9lfmbEGnoB83Lv0/PWv/0g=="
   "resolved" "https://registry.npmjs.org/react-navigation-stack/-/react-navigation-stack-2.10.2.tgz"
@@ -4910,7 +4915,7 @@
     "react-native-iphone-x-helper" "^1.3.0"
     "react-native-tab-view" "^2.15.2"
 
-"react-navigation@^4.4.3":
+"react-navigation@^4.1.1", "react-navigation@^4.4.3":
   "integrity" "sha512-tNBQQzbw0PVo9FLypQUUCISMcXW0wCW8oQeHtY0spWf35KC3IZHq/WcBm4E956wFsaqrDMGCUnyaVrxZNSuUGg=="
   "resolved" "https://registry.npmjs.org/react-navigation/-/react-navigation-4.4.3.tgz"
   "version" "4.4.3"

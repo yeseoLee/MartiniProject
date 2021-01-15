@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, StatusBar, Alert} from 'react-native';
 import {Container, Header, Title, Content, Footer, FooterTab, 
-        Button, Left, Right, Body, Icon, Item, Input, Image} from 'native-base';
+        Button, Left, Right, Body, Icon, Item, Input} from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 // import uuid from 'react-uuid';
-import Category from './Category/Category';
 
 const brandPrimary = 'white'
 
@@ -26,7 +25,7 @@ export default class HomeTab extends React.Component{
             <Ionicons name = 'ios-home' size = {26} style = {{color:tintColor}}/>
         )
     }
-    
+
     render() {
         return (
             <StatusBar backgroundColor='black'/>,
