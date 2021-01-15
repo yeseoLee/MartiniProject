@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, StatusBar} from 'react-native';
+import {View, Text, StyleSheet, StatusBar, Alert} from 'react-native';
 import {Container, Header, Title, Content, Footer, FooterTab, 
         Button, Left, Right, Body, Icon, Item, Input, Image} from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 // import uuid from 'react-uuid';
+import Category from './Category/Category';
+
 const brandPrimary = 'white'
+
 export default class HomeTab extends React.Component{
     
     state = {
@@ -30,7 +33,7 @@ export default class HomeTab extends React.Component{
             <Container>
                 <Header searchBar style={styles.header}>
                     <Left>
-                        <Button transparent>
+                        <Button transparent onPress={() => Alert.alert('Left button pressed')}>
                             <Ionicons name = "reorder-four-outline" 
                                 size = {30}
                                 style = {{color:"#303D74"}}/>
