@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, StatusBar} from 'react-native';
-import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon} from 'native-base';
+import {Container, Header, Title, Content, Footer, FooterTab, 
+        Button, Left, Right, Body, Icon, Item, Input, Image} from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 // import uuid from 'react-uuid';
 const brandPrimary = 'white'
@@ -27,7 +28,7 @@ export default class HomeTab extends React.Component{
         return (
             <StatusBar backgroundColor='black'/>,
             <Container>
-                <Header style={styles.header}>
+                <Header searchBar style={styles.header}>
                     <Left>
                         <Button transparent>
                             <Ionicons name = "reorder-four-outline" 
@@ -35,9 +36,10 @@ export default class HomeTab extends React.Component{
                                 style = {{color:"#303D74"}}/>
                         </Button>
                     </Left>
-                    <Body>
-                        
-                    </Body>
+                    <Item style={styles.search}>
+                        <Ionicons name="search-outline" style={{marginLeft: 10}}></Ionicons>
+                        <Input style={{marginLeft: 3}} placeholder="검색"/>
+                    </Item>
                 </Header>
             </Container>
         );
@@ -52,5 +54,10 @@ const styles = StyleSheet.create({
     },
     header:{
         backgroundColor: 'white',
+    },
+    search:{
+        flex: 2,
+        marginRight: 10,
+        backgroundColor: "#ededed"
     }
 });
