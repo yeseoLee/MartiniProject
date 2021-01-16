@@ -1,15 +1,24 @@
 import * as React from 'react';
-import {View, Text, StyleSheet,Image,ScrollView,Alert,TouchableOpacity} from 'react-native';
-import{Header,Body,Container,Button}from 'native-base'
+import {View, Text, StyleSheet,Image,ScrollView,Alert,TouchableOpacity,Switch} from 'react-native';
+import{Header,Body,Container}from 'native-base'
 import { Ionicons } from '@expo/vector-icons';
 import {createStackNavigator} from 'react-navigation-stack';
-import {createAppContainer} from 'react-navigation';
+import {createAppContainer, ThemeColors} from 'react-navigation';
 import * as MailComposer from 'expo-mail-composer';
+
+
+
+
 class MypageScreen extends React.Component{
   static navigationOptions = {
     tabBarIcon: ({tintColor}) => (
         <Ionicons name = 'person' size = {26} style = {{color:tintColor}}/>
     )
+  }
+  state={
+    eventSwtichIsOn1:false,
+    eventSwtichIsOn2:false,
+    eventSwtichIsOn3:false,
   }
   getemail = async() => {
     try{
@@ -31,13 +40,13 @@ class MypageScreen extends React.Component{
           <View style={{height: 150, flexDirection: 'row', alignItems: 'center'}}>
             <View style={{width: 100}}>
               <View style={{width: 100, height: 100}} >
-                <Image source={require('./Profile/images/avatar.png')} style={{width: 100, height: 100}}/>
+                <Image source={require('./Profile/images/sadfrog.png')} style={{width: 100, height: 100}}/>
               </View>
             </View>
             <View style={{flex: 1, marginLeft: 10}}>
               <Text style={{fontSize: 30}}>닉네임</Text>
-              <Text style={{color: 'gray', fontSize: 15}}>이름 / ID</Text>
-              <Text style={{color: 'gray', fontSize: 15}}>학교이름</Text>
+              <Text style={{color: 'gray', fontSize: 15}}>이름:</Text>
+              <Text style={{color: 'gray', fontSize: 15}}>학번:</Text>
             </View>
           </View>
           <View style={{height: 50, flexDirection: 'row', alignItems: 'center'}}>
@@ -56,6 +65,14 @@ class MypageScreen extends React.Component{
                 </View>
                 <View style={styles.bookcontent}>
                 <Text>C프로그래밍</Text>
+                <View style={{flexDirection:'row',justifyContent:'space-around'}}>
+                <Text>{this.state.eventSwtichIsOn1?'판매중':'판매완료'}</Text>
+                <Switch
+                  onValueChange={value=>this.setState({eventSwtichIsOn1:value})}
+                  style={{marginBottom:10}}
+                  value={this.state.eventSwtichIsOn1}
+                />
+                </View>
                 </View>
               </View>
               <View style={styles.whatbook}>
@@ -65,6 +82,14 @@ class MypageScreen extends React.Component{
                 </View>
                 <View style={styles.bookcontent}>
                   <Text>미분적분학</Text>
+                  <View style={{flexDirection:'row',justifyContent:'space-around'}}>
+                <Text>{this.state.eventSwtichIsOn2?'판매중':'판매완료'}</Text>
+                <Switch
+                  onValueChange={value=>this.setState({eventSwtichIsOn2:value})}
+                  style={{marginBottom:10}}
+                  value={this.state.eventSwtichIsOn2}
+                />
+                </View>
                   </View>
               </View>
               <View style={styles.whatbook}>
@@ -74,6 +99,14 @@ class MypageScreen extends React.Component{
                 </View>
                 <View style={styles.bookcontent}>
                   <Text>미분적분학</Text>
+                  <View style={{flexDirection:'row',justifyContent:'space-around'}}>
+                <Text>{this.state.eventSwtichIsOn3?'판매중':'판매완료'}</Text>
+                <Switch
+                  onValueChange={value=>this.setState({eventSwtichIsOn3:value})}
+                  style={{marginBottom:10}}
+                  value={this.state.eventSwtichIsOn3}
+                />
+                </View>
                   </View>
               </View>
             </ScrollView>
@@ -88,7 +121,7 @@ class MypageScreen extends React.Component{
             </View>
             <View style={{flex: 1, height: 50, flexDirection: 'column', borderWidth: 0.5, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
              <TouchableOpacity>
-              <Ionicons name = 'alert-outline' size = {26} onPress={() => this.props.navigation.navigate('Qa')}/>
+              <Ionicons name = 'alert-outline' size = {26} onPress={() => this.props.navigation.navigate('이용안내')}/>
              </TouchableOpacity>
              <Text>이용안내</Text>
             </View>
@@ -126,7 +159,7 @@ class QaScreen extends React.Component{
 
 const AppNavigator=createStackNavigator({
   Mypage: {screen:MypageScreen},
-  Noti:{screen:NotiScreen},
+  이용안내:{screen:NotiScreen},
   Qa: {screen:QaScreen}, 
 });
 const AppContainer=createAppContainer(AppNavigator);
@@ -154,26 +187,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width:'100%',
     height:'5%',
-    //backgroundColor: '#ff9a9a',
   },
   title: {
     flexDirection: 'row',
     width:'100%',
     height:'18%',
     alignItems:'center'
-    //backgroundColor: '#9aa9ff',
   },
   content: {
     flex: 1,
     paddingLeft:10,
     paddingRight:10,
     paddingBottom:30,
-    //backgroundColor: '#d6ca1a',
   },
   footer: {
     width:'100%',
     height:'20%',
-    //backgroundColor: '#1ad657',
   },
   booK:{
     borderWidth:0.5,
