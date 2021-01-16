@@ -13,7 +13,7 @@ import AddTab from '../AppTabNavigation/AddTab';
 const AppTabNavigator = createBottomTabNavigator({
     Home: {screen:HomeTab},
     Add: {screen:AddTab}, 
-    Like: {screen:LikeTab},
+    Like: LikeTab,  //이렇게 하면 에러 해결이라하는데, 차이를 모르겠다. 해결이 안된다
     Profile: {screen:ProfileTab}, 
 }, {
     swipeEnabled: true,

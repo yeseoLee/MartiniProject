@@ -12,7 +12,7 @@ export default class FavoriteBook extends React.Component{
     getSMS = async() => {
         try{
           await SMS.isAvailableAsync();
-          SMS.sendSMSAsync(['01040941308'], '군-바');
+          SMS.sendSMSAsync(this.props.phone, 'App Testing\n안녕하세요! 판매중이신 "'+this.props.name+'" 책을 구입하고 싶어요!!'); //고정된 메세지를 보낼 수 있게 한다
         }catch(error){
           Alert.alert("SMS 기능 사용 불가", "ㅠ-ㅠ");
         }
@@ -22,20 +22,26 @@ export default class FavoriteBook extends React.Component{
         Alert.alert("관심목록", "삭제되었습니다")
     }
 
+    alertPush = () => {
+        Alert.alert("판매페이지로 넘어갑니다")
+    }
+
     render() {
         return (
-        <View style={styles.ItemStyle}>
-            <Image style={styles.bookImage} source={require("./bookImg.jpg")} />
-            <Text style={styles.bookDescribe}>{this.props.name}</Text>
-            <View style={justifyContent='space-around'}>
-                <TouchableOpacity>
-                    <Ionicons name = 'heart' color = "hotpink" size = {40} onPress={this.alertDelete}/>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Ionicons name = 'chatbubble-ellipses' color="lightblue" onPress={this.getSMS} size = {40}/>
-                </TouchableOpacity>
+        <TouchableOpacity onPress={this.alertPush}>
+            <View style={styles.ItemStyle}>
+                <Image style={styles.bookImage} source={this.props.img} />
+                <Text style={styles.bookDescribe}>{this.props.name}</Text>
+                <View style={{justifyContent:'space-around', flex:1, alignItems:'flex-end'}}>
+                    <TouchableOpacity onPress={this.alertDelete}>
+                        <Ionicons name = 'heart' color = "hotpink" size = {45}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={this.getSMS}>    
+                        <Ionicons name = 'chatbubble-ellipses' color="lightblue" size = {45}/>
+                    </TouchableOpacity>
+                </View>
             </View>
-        </View>
+        </TouchableOpacity>
         );
     }
 }
@@ -54,11 +60,14 @@ const styles = StyleSheet.create({
         borderBottomColor: 'black'
     },    
     bookImage:{
-        width: 100,
         height:'80%',
         paddingLeft: 10,
+        flex:1,
+        borderWidth: 4
     },
     bookDescribe:{
-        fontSize: 20
+        fontSize: 20,
+        flex: 3,
+        paddingLeft:5
     },
 });
