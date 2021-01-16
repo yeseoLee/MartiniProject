@@ -1,47 +1,43 @@
 import React from 'react';
 import {View, Text, StyleSheet, Button, FlatList} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import axios from "axios";
+import uuid from 'react-uuid';
 
 import FavoriteBook from './Like/FavoriteBook';
 
 const DATA = [    
-    {key: 'C프로그래밍',
-     title: 'test'
+    {key: uuid(),      //각 값마다 고유 key값 부여
+     title: '현대차',
+     img: './Like/bookImg.jpg'
     },
-    {key: '알고리즘',
-     title: 'test'
+    {key:  uuid(),
+     title: '삼성전자',
+     img: './Profile\images/c.png'
     },
-    {key: '자료구조',
-     title: 'test'
+    {key:  uuid(),
+     title: '성적과함께사라지다',
+     img: './Like/bookImg.jpg'
     },
-     {key: '데이터분석개론',
-      title: 'test'
-     },
-     {key: '교수님심리분석개론',
-      title: 'test'
-        },
-        {key: '시험기간해부학개론',
-      title: 'test'
-     },
-     {key: 'F그것이궁금하다',
-      title: 'test'
-     },
-     {key: '수업과심리이해',
-      title: 'test'
-     },
-     {key: '서양철학',
-      title: 'test'
-     }
+    {key:  uuid(),
+     title: '삼성바이오로직스',
+     img: './Like/bookImg.jpg'
+    },
+    {key:  uuid(),
+     title: '테슬라',
+     img: './Like/bookImg.jpg'
+    },
+    {key:  uuid(),
+     title: '대한항공',
+     img: './Like/bookImg.jpg'
+    },
 ];
 
 export default class LikeTab extends React.Component{
     
-
     
     static navigationOptions = {
         tabBarIcon: ({tintColor}) => (
-            <Ionicons name = 'heart-outline' size = {26} style = {{color:tintColor}}/>
+            <Ionicons name = 'heart-outline' size = {26} style = {{color:tintColor}} color = "red"/>
         )
     }
     
@@ -53,7 +49,7 @@ export default class LikeTab extends React.Component{
                 </View>
                 <View style={styles.bodyContainer}>
                     <FlatList data = {DATA}
-                         renderItem={({item}) => <FavoriteBook name={item.key}/>} />
+                         renderItem={({item}) => <FavoriteBook name={item.title}/>} />
                 </View>
             </View>
 
@@ -70,11 +66,14 @@ const styles = StyleSheet.create({
         height:'10%',
         backgroundColor:'white',
         justifyContent: 'center',
-        paddingLeft: 10
+        paddingLeft: 10,
+        borderBottomWidth: 2,
+        borderEndColor: 'black'
     },
     headerTextStyle:{
         fontSize: 30,
-        fontWeight: '100'
+        fontWeight: '100',
+        color: 'black',
     },
     bodyContainer:{
         height:'90%',

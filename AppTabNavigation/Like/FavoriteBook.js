@@ -29,10 +29,10 @@ export default class FavoriteBook extends React.Component{
             <Text style={styles.bookDescribe}>{this.props.name}</Text>
             <View style={justifyContent='space-around'}>
                 <TouchableOpacity>
-                    <Ionicons name = 'heart-outline' size = {50} onPress={this.alertDelete}/>
+                    <Ionicons name = 'heart' color = "hotpink" size = {40} onPress={this.alertDelete}/>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Ionicons name = 'chatbubble-ellipses-outline' onPress={this.getSMS} size = {50}/>
+                    <Ionicons name = 'chatbubble-ellipses' color="lightblue" onPress={this.getSMS} size = {40}/>
                 </TouchableOpacity>
             </View>
         </View>
@@ -49,12 +49,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         margin:5,
         paddingLeft: 15,
-        paddingRight: 15
+        paddingRight: 15,
+        borderBottomWidth: 0.5,
+        borderBottomColor: 'black'
     },    
     bookImage:{
-        width: '20%',
+        width: 100,
         height:'80%',
-        paddingLeft: 10
+        paddingLeft: 10,
     },
     bookDescribe:{
         fontSize: 20
