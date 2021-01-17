@@ -9,7 +9,7 @@ import uuid from 'react-uuid'
 
 export default class BookScreen extends React.Component{
     state={
-        seg:false,
+        seg: 1,
     }
     render(){
         return(
