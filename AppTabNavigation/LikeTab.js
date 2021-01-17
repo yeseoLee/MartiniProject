@@ -94,8 +94,7 @@ export default class LikeTab extends React.Component{
                     <Text style={styles.headerTextStyle}>관심목록</Text>
                 </View>
                 <View style={styles.bodyContainer}>
-                    <FlatList data = {DATA}
-                         renderItem={({item}) => <FavoriteBook name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone}/>} />
+                    <FlatList data = {DATA} renderItem={({item}) => <FavoriteBook name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone}/>} />
                 </View>
             </View>
 
