@@ -7,12 +7,24 @@ export default class FavoriteBook extends React.Component{
     
     constructor() {
         super();
+        this.state = {
+        heartColor:true
+        };
     }
 
+    
+
+    updateHeartColor = () => {
+        this.setState({
+            heartColor:false 
+        })
+        this.alertDelete()
+    }
+ 
     getSMS = async() => {
         try{
           await SMS.isAvailableAsync();
-          SMS.sendSMSAsync(this.props.phone, 'App Testing\n안녕하세요! 판매중이신 "'+this.props.name+'" 책을 구입하고 싶어요!!'); //고정된 메세지를 보낼 수 있게 한다
+          SMS.sendSMSAsync(this.props.phone, 'App Testing\n안녕하세요! 판매중이신 "' + this.props.name + '" 책을 구입하고 싶어요!!'); //고정된 메세지를 보낼 수 있게 한다
         }catch(error){
           Alert.alert("SMS 기능 사용 불가", "ㅠ-ㅠ");
         }
@@ -33,11 +45,11 @@ export default class FavoriteBook extends React.Component{
                 <Image style={styles.bookImage} source={this.props.img} />
                 <Text style={styles.bookDescribe}>{this.props.name}</Text>
                 <View style={{justifyContent:'space-around', flex:1, alignItems:'flex-end'}}>
-                    <TouchableOpacity onPress={this.alertDelete}>
-                        <Ionicons name = 'heart' color = "#fa576d" size = {30}/>
+                    <TouchableOpacity>
+                        {this.state.heartColor? <Ionicons name = 'heart' color = "#fa576d" size = {30} onPress={this.updateHeartColor.bind(this)}/>:<Ionicons name = 'heart-outline'  size = {30}/>}
                     </TouchableOpacity>
                     <TouchableOpacity onPress={this.getSMS}>    
-                        <Ionicons name = 'chatbubble-ellipses' color="#c4c4c4" size = {30}/>
+                        <Ionicons name = 'chatbubble-ellipses-outline' size = {30}/>
                     </TouchableOpacity>
                 </View>
             </View>

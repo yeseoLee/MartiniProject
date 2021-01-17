@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Button, FlatList} from 'react-native';
+import {Container, Header} from 'native-base'
 import { Ionicons } from '@expo/vector-icons';
 import uuid from 'react-uuid';
 
@@ -65,6 +66,12 @@ export default class LikeTab extends React.Component{
     render() {
         return (
             <View style = {styles.container}>
+                {/* <Container>
+                    <Header>
+                        <Text style={styles.headerTextStyle}>관심목록</Text>
+                    </Header>
+                </Container> */}
+                
                 <View style={styles.headerContainer}>
                     <Text style={styles.headerTextStyle}>관심목록</Text>
                 </View>
@@ -84,19 +91,19 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     headerContainer: {
-        height:'10%',
+        height:'7%',
         backgroundColor:'white',
         justifyContent: 'center',
-        paddingLeft: 10,
-        borderBottomWidth: 2,
+        paddingLeft: 20,
+        borderBottomWidth: 0.5,
         borderEndColor: 'black'
     },
     headerTextStyle:{
-        fontSize: 30,
+        fontSize: 15,
         fontWeight: '100',
         color: 'black',
     },
     bodyContainer:{
-        height:'90%',
+        height:'93%',
     },
 });
