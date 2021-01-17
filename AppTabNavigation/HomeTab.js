@@ -117,9 +117,6 @@ export default class HomeTab extends React.Component{
     }
 
    
-
-
-
     render() {
         return (
             <StatusBar backgroundColor='black'/>,

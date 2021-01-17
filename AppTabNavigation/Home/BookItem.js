@@ -33,7 +33,7 @@ export default class BookItem extends React.Component{
     getSMS = async() => {
         try{
           await SMS.isAvailableAsync();
-          SMS.sendSMSAsync(this.props.phone, 'App Testing\n안녕하세요! 판매중이신 "' + this.props.name + '" 책을 구입하고 싶어요!!'); //고정된 메세지를 보낼 수 있게 한다
+          SMS.sendSMSAsync(this.props.phone, 'App Testing\n안녕하세요! 판매중이신 "' + this.props.BookName + '" 책을 구입하고 싶어요!!'); //고정된 메세지를 보낼 수 있게 한다
         }catch(error){
           Alert.alert("SMS 기능 사용 불가", "ㅠ-ㅠ");
         }
@@ -47,27 +47,31 @@ export default class BookItem extends React.Component{
         Alert.alert("관심목록", "삭제되었습니다")
     }
 
-   
+    alertPush = () => {
+        Alert.alert("판매페이지로 넘어갑니다")
+    }
 
 
 
     render() {
         return (
-            <View style={styles.ItemStyle}>
-                <Image style={styles.bookImage} source={this.props.img} />
-                <View style={styles.bookDescribe}>
-                    <Text style={styles.bookDescribe2}>{this.props.BookName}</Text>
-                    <Text style={styles.bookDescribe3}>{this.props.ClassName}</Text>
-                    <Text style={styles.bookDescribe3}>{this.props.price}</Text>
-                </View>
-                <View style={justifyContent='space-around'}>
-                    <TouchableOpacity>
-                        <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={this.getSMS}>
-                        <Ionicons name = 'chatbubble-ellipses-outline'  size = {30}/>
-                    </TouchableOpacity>
-                </View>
+            <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:1}}>                
+                <TouchableOpacity style={styles.ItemStyle} onPress={this.alertPush}>
+                    <Image style={styles.bookImage} source={this.props.img} />
+                    <View style={styles.bookDescribe}>
+                        <Text style={styles.bookDescribe2}>{this.props.BookName}</Text>
+                        <Text style={styles.bookDescribe3}>{this.props.ClassName}</Text>
+                        <Text style={styles.bookDescribe3}>{this.props.price}</Text>
+                    </View>
+                    <View style={justifyContent='space-around'}>
+                        <TouchableOpacity>
+                            <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={this.getSMS}>
+                            <Ionicons name = 'chatbubble-ellipses-outline'  size = {30}/>
+                        </TouchableOpacity>
+                    </View>
+            </TouchableOpacity>
            </View>
         );
     }
@@ -96,8 +100,8 @@ const styles = StyleSheet.create({
       },
       ItemStyle:{
         marginBottom:0,
-        borderBottomColor:'lightgrey',
-        borderBottomWidth:1,
+        // borderBottomColor:'lightgrey',
+        // borderBottomWidth:1,
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: 'white',

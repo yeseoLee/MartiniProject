@@ -46,8 +46,8 @@ export default class FavoriteBook extends React.Component{
 
     render() {
         return (
-        <TouchableOpacity onPress={this.alertPush}>
-            <View style={styles.ItemStyle}>
+        <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:1}}>
+            <TouchableOpacity style={styles.ItemStyle} onPress={this.alertPush}>
                 <Image style={styles.bookImage} source={this.props.img} />
                 <View style={{ width:200,  flexDirection:'column',fontSize: 20}}>
                     <Text style={styles.bookDescribe}>{this.props.name}</Text>
@@ -62,25 +62,8 @@ export default class FavoriteBook extends React.Component{
                         <Ionicons name = 'chatbubble-ellipses-outline' size = {30}/>
                     </TouchableOpacity>
                 </View>
-            </View>
-        </TouchableOpacity>
-
-        // <View style={styles.ItemStyle}>
-        // <Image style={styles.bookImage} source={require("./Profile/images/statistic.png")} />
-        // <View style={styles.bookDescribe}>
-        //     <Text style={ fontSize: 20,  marginBottom:10 }>통계학개론 제 3판</Text>
-        //     <Text style={ fontSize: 15,  marginBottom:3}>통계학개론</Text>
-        //     <Text style={ fontSize: 15,  marginBottom:3}>17,000 원</Text>
-        // </View>
-        // <View style={justifyContent='space-around'}>
-        //     <TouchableOpacity>
-        //         <Ionicons name = 'heart' size = {30} onPress={this.alertDelete} color='#F15F5F'/>
-        //     </TouchableOpacity>
-        //     <TouchableOpacity onPress={this.getSMS}>
-        //         <Ionicons name = 'chatbubble-ellipses-outline'  size = {30}/>
-        //     </TouchableOpacity>
-        // </View>
-        // </View>
+            </TouchableOpacity>
+        </View>
         );
     }
 }
@@ -89,8 +72,6 @@ const styles = StyleSheet.create({
     
     ItemStyle:{
         marginBottom:0,
-        borderBottomColor:'lightgrey',
-        borderBottomWidth:1,
         justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: 'white',
