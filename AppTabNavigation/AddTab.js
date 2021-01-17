@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet,TextInput, Alert, TouchableOpacity} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export default class AddTab extends React.Component{
 
@@ -27,14 +27,35 @@ export default class AddTab extends React.Component{
 
     //카메라 & 갤러리 react-native permission 추가해야 함
 
+    state ={
+        item: null
+    }
+   
     render(){
         return (
             <View style={styles.container}>
                 <View style={styles.formArea}>
-                <TextInput 
-                        style={styles.textForm} 
-                        placeholder={"🔎 검색"}/>
-              
+
+                <DropDownPicker
+                    items={[
+                        {label: '전공', value: 'item1'},
+                        {label: '비전공', value: 'item2'},
+                        {label: '기타', value: 'item3'},
+                    ]}
+
+                    defaultNull={this.state.item === null}
+
+                    placeholder="카테고리"
+                    placeholderStyle={{color: '#888'}}
+
+                    containerStyle={{height: 45}}
+                    style={{backgroundColor: 'white'}}
+                    itemStyle={{justifyContent: 'flex-start'}}
+                    //selectItemStyle={{justifyContent: 'center'}, {color: 'Black'}}
+                    dropDownStyle={{backgroundColor: 'white'}}
+                    onChangeItem={item => console.log(item.label, item.value)}
+                />
+                                            
                 <TextInput 
                         style={styles.textForm} 
                         placeholder={"도서명"}/>
@@ -89,10 +110,9 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: '#888',
         width: '100%',
-        height:'9%',
+        height: 45,
         paddingLeft: 5,
-        marginBottom:12
-
+        marginTop:12
     },
     buttonclick: {
         flexDirection:'row',
