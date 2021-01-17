@@ -46,13 +46,13 @@ export default class FavoriteBook extends React.Component{
 
     render() {
         return (
-        <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:1}}>
-            <TouchableOpacity style={styles.ItemStyle} onPress={this.alertPush}>
+        <TouchableOpacity onPress={this.alertPush}>
+            <View style={styles.ItemStyle}>
                 <Image style={styles.bookImage} source={this.props.img} />
-                <View style={{ width:200,  flexDirection:'column',fontSize: 20}}>
-                    <Text style={styles.bookDescribe}>{this.props.name}</Text>
-                    <Text style={ {fontSize: 15,  marginBottom:3}}>{this.props.className}</Text>
-                    <Text style={ {fontSize: 15,  marginBottom:3}}>{this.props.price}</Text>
+                <View style={{ width:200,  flexDirection:'column'}}>
+                    <Text style={styles.bookDescribeTitle}>{this.props.name}</Text>
+                    <Text style={ styles.bookDescribe}>🎓 {this.props.className}</Text>
+                    <Text style={ styles.bookDescribe}>💲 {this.props.price}</Text>
                 </View>
                 <View style={{justifyContent:'space-around', flex:1, alignItems:'flex-end'}}>
                     <TouchableOpacity>
@@ -62,8 +62,25 @@ export default class FavoriteBook extends React.Component{
                         <Ionicons name = 'chatbubble-ellipses-outline' size = {30}/>
                     </TouchableOpacity>
                 </View>
-            </TouchableOpacity>
-        </View>
+            </View>
+        </TouchableOpacity>
+
+        // <View style={styles.ItemStyle}>
+        // <Image style={styles.bookImage} source={require("./Profile/images/statistic.png")} />
+        // <View style={styles.bookDescribe}>
+        //     <Text style={ fontSize: 20,  marginBottom:10 }>통계학개론 제 3판</Text>
+        //     <Text style={ fontSize: 15,  marginBottom:3}>통계학개론</Text>
+        //     <Text style={ fontSize: 15,  marginBottom:3}>17,000 원</Text>
+        // </View>
+        // <View style={justifyContent='space-around'}>
+        //     <TouchableOpacity>
+        //         <Ionicons name = 'heart' size = {30} onPress={this.alertDelete} color='#F15F5F'/>
+        //     </TouchableOpacity>
+        //     <TouchableOpacity onPress={this.getSMS}>
+        //         <Ionicons name = 'chatbubble-ellipses-outline'  size = {30}/>
+        //     </TouchableOpacity>
+        // </View>
+        // </View>
         );
     }
 }
@@ -72,21 +89,27 @@ const styles = StyleSheet.create({
     
     ItemStyle:{
         marginBottom:0,
+        borderBottomColor:'lightgrey',
+        borderBottomWidth:1,
         justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor: 'white',
         flexDirection: 'row',
         margin:5,
         paddingLeft: 25,
         paddingRight: 25
     },    
     bookImage:{
+        marginRight:20,
         width: 90,
         marginBottom:5,
         height:120,
     },
-    bookDescribe:{
+    bookDescribeTitle:{
         fontSize: 20,
         marginBottom:10
+    },
+    bookDescribe:{
+        fontSize: 15,
+        marginBottom:3
     },
 });
