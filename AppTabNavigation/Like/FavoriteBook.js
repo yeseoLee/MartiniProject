@@ -8,16 +8,22 @@ export default class FavoriteBook extends React.Component{
     constructor() {
         super();
         this.state = {
-        heartColor:true
+            heartColor:"#fa576d"
         };
     }
 
     
 
     updateHeartColor = () => {
-        this.setState({
-            heartColor:false 
-        })
+        if(this.state.heartColor === "#fa576d"){
+            this.setState({
+                heartColor:'lightgray'
+            })
+        }else{
+            this.setState({
+                heartColor:'#fa576d'
+            })
+        }
         this.alertDelete()
     }
  
@@ -46,7 +52,7 @@ export default class FavoriteBook extends React.Component{
                 <Text style={styles.bookDescribe}>{this.props.name}</Text>
                 <View style={{justifyContent:'space-around', flex:1, alignItems:'flex-end'}}>
                     <TouchableOpacity>
-                        {this.state.heartColor? <Ionicons name = 'heart' color = "#fa576d" size = {30} onPress={this.updateHeartColor.bind(this)}/>:<Ionicons name = 'heart-outline'  size = {30}/>}
+                        <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={this.getSMS}>    
                         <Ionicons name = 'chatbubble-ellipses-outline' size = {30}/>
