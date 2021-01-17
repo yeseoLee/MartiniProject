@@ -29,6 +29,7 @@
     "react-navigation-stack": "^2.10.2",
     "react-navigation-tabs": "^2.10.1",
     "react-toggle-button": "^2.2.0",
+    "react-uuid": "^1.0.2",
     "toggle-switch-react-native": "^2.3.0",
     "uuid": "^8.3.2"
   },

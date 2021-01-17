@@ -34,10 +34,10 @@ export default class FavoriteBook extends React.Component{
                 <Text style={styles.bookDescribe}>{this.props.name}</Text>
                 <View style={{justifyContent:'space-around', flex:1, alignItems:'flex-end'}}>
                     <TouchableOpacity onPress={this.alertDelete}>
-                        <Ionicons name = 'heart' color = "hotpink" size = {45}/>
+                        <Ionicons name = 'heart' color = "#fa576d" size = {30}/>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={this.getSMS}>    
-                        <Ionicons name = 'chatbubble-ellipses' color="lightblue" size = {45}/>
+                        <Ionicons name = 'chatbubble-ellipses' color="#c4c4c4" size = {30}/>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -49,7 +49,7 @@ export default class FavoriteBook extends React.Component{
 const styles = StyleSheet.create({
     
     ItemStyle:{
-        justifyContent: 'space-between',
+        //justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: 'white',
         flexDirection: 'row',
@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
         paddingLeft: 15,
         paddingRight: 15,
         borderBottomWidth: 0.5,
-        borderBottomColor: 'black'
+        borderBottomColor: 'black',
+        height: 100,
     },    
     bookImage:{
         height:'80%',
