@@ -12,7 +12,6 @@ export default class FavoriteBook extends React.Component{
         };
     }
 
-    
 
     updateHeartColor = () => {
         if(this.state.heartColor === "#fa576d"){

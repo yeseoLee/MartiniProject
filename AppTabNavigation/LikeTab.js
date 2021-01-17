@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button, FlatList} from 'react-native';
-import {Container, Header} from 'native-base'
+import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {Container, Header, Title, Content, Footer, FooterTab, 
+    Button, Left, Item, Input, Body} from 'native-base'
 import { Ionicons } from '@expo/vector-icons';
 import uuid from 'react-uuid';
 
 import FavoriteBook from './Like/FavoriteBook';
+import { color } from 'react-native-reanimated';
 
 const DATA = [    
     {key: uuid(),      //각 값마다 고유 key값 부여
@@ -69,9 +71,15 @@ export default class LikeTab extends React.Component{
                     </Header>
                 </Container> */}
                 
-                <View style={styles.headerContainer}>
+                {/*<View style={styles.headerContainer}>
                     <Text style={styles.headerTextStyle}>관심목록</Text>
-                </View>
+            </View>*/}
+                <Header style={styles.header}>
+                    <Left>
+                    <Text style={styles.headertext}>  관심 목록 </Text>
+                </Left>
+                <Body></Body>
+                </Header>
                 <View style={styles.bodyContainer}>
                     <FlatList data = {DATA}
                          renderItem={({item}) => <FavoriteBook name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone}/>} />
@@ -87,15 +95,7 @@ const styles = StyleSheet.create({
         flex:1,
         backgroundColor: 'white'
     },
-    headerContainer: {
-        height:'7%',
-        backgroundColor:'white',
-        justifyContent: 'center',
-        paddingLeft: 20,
-        borderBottomWidth: 0.5,
-        borderEndColor: 'lightgray',
-          shadowOpacity: 0.5,
-    },
+
     headerTextStyle:{
         fontSize: 20,
         fontWeight: '100',
@@ -104,4 +104,14 @@ const styles = StyleSheet.create({
     bodyContainer:{
         height:'93%',
     },
+    header:{
+        backgroundColor:'white',
+        alignItems:'flex-start'
+    },
+    headertext:{
+        marginLeft:5,
+        color:'gray',
+        fontSize:20,
+        alignItems:'flex-start'
+    }
 });

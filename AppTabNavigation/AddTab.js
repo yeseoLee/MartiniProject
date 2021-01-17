@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet,TextInput, Alert, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet,TextInput, Alert, TouchableOpacity,ScrollView,Button} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import {Header, Left, Body} from 'native-base';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 export default class AddTab extends React.Component{
@@ -33,76 +34,88 @@ export default class AddTab extends React.Component{
    
     render(){
         return (
+            <View>
+            <Header style={styles.header}>
+                <Left>
+                    <Text style={styles.headertext}>  글쓰기</Text>
+                </Left>
+                <Body></Body>
+            </Header>
+            <ScrollView>
+            
             <View style={styles.container}>
                 <View style={styles.formArea}>
+                    <DropDownPicker
+                        items={[
+                            {label: '전공', value: 'item1'},
+                            {label: '비전공', value: 'item2'},
+                            {label: '기타', value: 'item3'},
+                        ]}
 
-                <DropDownPicker
-                    items={[
-                        {label: '전공', value: 'item1'},
-                        {label: '비전공', value: 'item2'},
-                        {label: '기타', value: 'item3'},
-                    ]}
+                        defaultNull={this.state.item === null}
 
-                    defaultNull={this.state.item === null}
+                        placeholder="카테고리"
+                        placeholderStyle={{color: '#888'}}
 
-                    placeholder="카테고리"
-                    placeholderStyle={{color: '#888'}}
-
-                    containerStyle={{height: 45}}
-                    style={{backgroundColor: 'white'}}
-                    itemStyle={{justifyContent: 'flex-start'}}
+                        containerStyle={{height: 45}}
+                    /*style={{backgroundColor: 'white'}}*/
+                        itemStyle={{justifyContent: 'flex-start'}}
                     //selectItemStyle={{justifyContent: 'center'}, {color: 'Black'}}
-                    dropDownStyle={{backgroundColor: 'white'}}
-                    onChangeItem={item => console.log(item.label, item.value)}
-                />
+                   /* dropDownStyle={{backgroundColor: 'white'}}*/
+                        onChangeItem={item => console.log(item.label, item.value)}
+                    
+                   />
                                             
-                <TextInput 
+                    <TextInput 
                         style={styles.textForm} 
                         placeholder={"도서명"}/>
                 
-                <TextInput 
+                    <TextInput 
                         style={styles.textForm} 
                         placeholder={"출판사"}/>
                
-                <TextInput 
+                    <TextInput 
                         style={styles.textForm} 
                         placeholder={"수업 과목"}/>
                 
-                <TextInput 
+                    <TextInput 
                         style={styles.textForm} 
                         placeholder={"판매 가격"}/>
                 
-                <TextInput 
+                    <TextInput 
                         style={styles.textForm} 
                         placeholder={"훼손 상태"}/>
                 
-                <TextInput 
+                    <TextInput 
                         style={styles.textForm} 
                         placeholder={"연락처"}/>
                
-                <TextInput 
+                    <TextInput 
                         style={styles.textForm} 
                         placeholder={"사진 불러오기  or  카메라 촬영"}/>   
                 </View>
+
                 <View style={styles.buttonclick}>
-                    <TouchableOpacity>
-                        <Ionicons name = 'add-circle-outline' size = {50} onPress={this.alertSave}/>
-                    </TouchableOpacity>
+                    
+                        <Button title="  등록  " onPress={this.alertSave} color='#303D74' size='100'/>
+                    
                 </View>
             </View>
+        </ScrollView>
+        </View>
         ); // 21.01.15 왜 에러가 뜰까...
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop:10,
-        flex: 1,
+        marginTop:20,
+       paddingTop:10,
+       marginBottom:70,
         justifyContent: 'center',
         alignItems: 'center',
     },
     formArea: {
-        flex:0.8,
         width: '70%',
         marginBottom:30
     },
@@ -116,6 +129,16 @@ const styles = StyleSheet.create({
     },
     buttonclick: {
         flexDirection:'row',
-        justifyContent:'space-between',
+        justifyContent:'center',
     },
+    header:{
+        backgroundColor:'white',
+    },
+    
+    headertext:{
+        marginLeft:5,
+        color:'gray',
+        fontSize:20,
+        alignItems:'flex-start'
+    }
 })

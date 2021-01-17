@@ -60,8 +60,8 @@ export default class BookItem extends React.Component{
                     <Image style={styles.bookImage} source={this.props.img} />
                     <View style={styles.bookDescribe}>
                         <Text style={styles.bookDescribe2}>{this.props.BookName}</Text>
-                        <Text style={styles.bookDescribe3}>{this.props.ClassName}</Text>
-                        <Text style={styles.bookDescribe3}>{this.props.price}</Text>
+                        <Text style={styles.bookDescribe3}>🎓 {this.props.ClassName}</Text>
+                        <Text style={styles.bookDescribe3}>💲 {this.props.price}</Text>
                     </View>
                     <View style={justifyContent='space-around'}>
                         <TouchableOpacity>

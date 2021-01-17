@@ -28,7 +28,7 @@ export default class BookScreen extends React.Component{
 								first
 								active={this.state.seg === 1 ? true : false}
 								onPress={() => this.setState({ seg: 1 })}>
-                            <Text style={{ color: this.state.seg === 1 ? "white" : "#303D74" }}>판매중</Text>
+                            <Text style={{ color: this.state.seg === 1 ? "white" : "#303D74" }}>  판매중  </Text>
                         </Button>
                         <Button last
 								style={{
@@ -37,7 +37,7 @@ export default class BookScreen extends React.Component{
 								}}
 								active={this.state.seg === 2 ? true : false}
 								onPress={() => this.setState({ seg: 2 })}>
-                            <Text style={{ color: this.state.seg === 1 ? "#303D74" : "white" }}>판매완료</Text>
+                            <Text style={{ color: this.state.seg === 1 ? "#303D74" : "white" }}>  판매완료  </Text>
                         </Button>
                     </Segment> 
                 </View>
