@@ -4,7 +4,7 @@ import {Container, Header, Title, Content, Footer, FooterTab,
         Button, Left, Right, Body, Icon, Item, Input} from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 import * as SMS from 'expo-sms';
-// import uuid from 'react-uuid';
+import uuid from 'react-uuid';
 
 const brandPrimary = 'white'
 

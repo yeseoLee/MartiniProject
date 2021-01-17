@@ -49,7 +49,11 @@ export default class FavoriteBook extends React.Component{
         <TouchableOpacity onPress={this.alertPush}>
             <View style={styles.ItemStyle}>
                 <Image style={styles.bookImage} source={this.props.img} />
-                <Text style={styles.bookDescribe}>{this.props.name}</Text>
+                <View style={{ width:200,  flexDirection:'column',fontSize: 20}}>
+                    <Text style={styles.bookDescribe}>{this.props.name}</Text>
+                    <Text style={ {fontSize: 15,  marginBottom:3}}>{this.props.className}</Text>
+                    <Text style={ {fontSize: 15,  marginBottom:3}}>{this.props.price}</Text>
+                </View>
                 <View style={{justifyContent:'space-around', flex:1, alignItems:'flex-end'}}>
                     <TouchableOpacity>
                         <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
@@ -60,6 +64,23 @@ export default class FavoriteBook extends React.Component{
                 </View>
             </View>
         </TouchableOpacity>
+
+        // <View style={styles.ItemStyle}>
+        // <Image style={styles.bookImage} source={require("./Profile/images/statistic.png")} />
+        // <View style={styles.bookDescribe}>
+        //     <Text style={ fontSize: 20,  marginBottom:10 }>통계학개론 제 3판</Text>
+        //     <Text style={ fontSize: 15,  marginBottom:3}>통계학개론</Text>
+        //     <Text style={ fontSize: 15,  marginBottom:3}>17,000 원</Text>
+        // </View>
+        // <View style={justifyContent='space-around'}>
+        //     <TouchableOpacity>
+        //         <Ionicons name = 'heart' size = {30} onPress={this.alertDelete} color='#F15F5F'/>
+        //     </TouchableOpacity>
+        //     <TouchableOpacity onPress={this.getSMS}>
+        //         <Ionicons name = 'chatbubble-ellipses-outline'  size = {30}/>
+        //     </TouchableOpacity>
+        // </View>
+        // </View>
         );
     }
 }
@@ -67,26 +88,24 @@ export default class FavoriteBook extends React.Component{
 const styles = StyleSheet.create({
     
     ItemStyle:{
-        //justifyContent: 'space-between',
+        marginBottom:0,
+        borderBottomColor:'lightgrey',
+        borderBottomWidth:1,
+        justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: 'white',
         flexDirection: 'row',
         margin:5,
-        paddingLeft: 15,
-        paddingRight: 15,
-        borderBottomWidth: 0.5,
-        borderBottomColor: 'black',
-        height: 100,
+        paddingLeft: 25,
+        paddingRight: 25
     },    
     bookImage:{
-        height:'80%',
-        paddingLeft: 10,
-        flex:1,
-        borderWidth: 4
+        width: 90,
+        marginBottom:5,
+        height:120,
     },
     bookDescribe:{
         fontSize: 20,
-        flex: 3,
-        paddingLeft:5
+        marginBottom:10
     },
 });
