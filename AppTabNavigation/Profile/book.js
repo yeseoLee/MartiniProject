@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {View, Text, StyleSheet,Image,ScrollView,Alert,TouchableOpacity,Switch} from 'react-native';
-import{Header,Body,Container}from 'native-base'
+import { Container, Header, Left, Body, Right, Button, Icon, Title, Segment, Content } from 'native-base'
 import { Ionicons } from '@expo/vector-icons';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer, ThemeColors} from 'react-navigation';
@@ -9,7 +9,7 @@ import uuid from 'react-uuid'
 
 export default class BookScreen extends React.Component{
     state={
-        eventSwtichIsOn:false,
+        seg:false,
     }
     render(){
         return(
@@ -20,17 +20,26 @@ export default class BookScreen extends React.Component{
                 </View>
                 <View style={styles.bookcontent}>
                     <Text>{this.props.name}</Text>
-                <View style={{flexDirection:'row',justifyContent:'space-around'}}>
-                    <Text>{this.state.eventSwtichIsOn?'판매중':'판매완료'}</Text>
-                    <Switch
-                        onValueChange={value=>this.setState({eventSwtichIsOn:value})}
-                        style={{marginBottom:10}}
-                        trackColor={{
-                        true:'#303D73',
-                        }}
-                        value={this.state.eventSwtichIsOn}
-                    />
-                </View>
+                    <Segment style={{backgroundColor: "white"}}>
+                        <Button style={{
+									backgroundColor: this.state.seg === 1 ? "#303D74" : 'white',
+									borderColor: "#303D74",
+								}}
+								first
+								active={this.state.seg === 1 ? true : false}
+								onPress={() => this.setState({ seg: 1 })}>
+                            <Text style={{ color: this.state.seg === 1 ? "white" : "#303D74" }}>판매중</Text>
+                        </Button>
+                        <Button last
+								style={{
+									backgroundColor: this.state.seg === 2 ? "#303D74" : 'white',
+									borderColor: "#303D74",
+								}}
+								active={this.state.seg === 2 ? true : false}
+								onPress={() => this.setState({ seg: 2 })}>
+                            <Text style={{ color: this.state.seg === 1 ? "#303D74" : "white" }}>판매완료</Text>
+                        </Button>
+                    </Segment> 
                 </View>
             </View>
         )
