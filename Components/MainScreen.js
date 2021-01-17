@@ -36,7 +36,7 @@ const AppTabNavigator = createBottomTabNavigator({
         showIcon: true,
     }
 });
-const AppTabContainet = createAppContainer(AppTabNavigator);
+const AppTabContainer = createAppContainer(AppTabNavigator);
 
 export default class MainScreen extends React.Component{
 
@@ -56,7 +56,7 @@ export default class MainScreen extends React.Component{
     render(){
         return (
             <StatusBar backgroundColor='black'/>,
-            <AppTabContainet/>
+            <AppTabContainer/>
         );
     }
 }
@@ -68,3 +68,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }
 })
+
