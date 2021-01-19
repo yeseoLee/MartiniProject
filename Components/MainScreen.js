@@ -3,11 +3,13 @@ import {StyleSheet, View, Text, Button, Platform, StatusBar} from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
+import { Card } from 'react-native-paper';
 
 import HomeTab from '../AppTabNavigation/HomeTab';
 import LikeTab from '../AppTabNavigation/LikeTab';
 import ProfileTab from '../AppTabNavigation/ProfileTab';
 import AddTab from '../AppTabNavigation/AddTab';
+import Loading from '../Components/Loading';
 
 //하단 탭 네비게이션
 const AppTabNavigator = createBottomTabNavigator({
@@ -53,8 +55,17 @@ export default class MainScreen extends React.Component{
         title:'Library DataScience'
     }*/
 
+    state = {
+        appHasLoaded: true
+    }
+
     render(){
         return (
+            <View style={styles.container}>
+                <Card>
+                    <Loading />
+                </Card>
+            </View>,
             <StatusBar backgroundColor='black'/>,
             <AppTabContainer/>
         );
