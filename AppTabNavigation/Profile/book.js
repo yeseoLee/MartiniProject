@@ -40,9 +40,14 @@ export default class BookScreen extends React.Component{
                     </TouchableOpacity>
                 </View>
                 <View style={styles.bookcontent}>
-                    <Text>{this.props.name}</Text>
-                    <Segment style={{backgroundColor: "white"}}>
-                        <Button style={{
+                    <View style={styles.textcontent}>
+                        <Text style={styles.bookDescribeTitle}>{this.props.name}</Text>
+                        <Text style={ styles.bookDescribe}>🎓 {this.props.className}</Text>
+                        <Text style={ styles.bookDescribe}>💲 {this.props.price}</Text>
+                    </View>
+                    <View style={styles.buttoncontent}>
+                        <Segment style={{backgroundColor: "white"}}>
+                            <Button style={{
 									backgroundColor: this.state.seg === 1 ? "#303D74" : 'white',
 									borderColor: "#303D74",
 								}}
@@ -50,17 +55,18 @@ export default class BookScreen extends React.Component{
 								active={this.state.seg === 1 ? true : false}
 								onPress={() => this.setState({ seg: 1 })}>
                             <Text style={{ color: this.state.seg === 1 ? "white" : "#303D74" }}>  판매중  </Text>
-                        </Button>
-                        <Button last
+                            </Button>
+                            <Button last
 								style={{
 									backgroundColor: this.state.seg === 2 ? "#303D74" : 'white',
 									borderColor: "#303D74",
 								}}
 								active={this.state.seg === 2 ? true : false}
 								onPress={() => this.setState({ seg: 2 })}>
-                            <Text style={{ color: this.state.seg === 1 ? "#303D74" : "white" }}>  판매완료  </Text>
-                        </Button>
-                    </Segment> 
+                                <Text style={{ color: this.state.seg === 1 ? "#303D74" : "white" }}>  판매완료  </Text>
+                            </Button>
+                        </Segment> 
+                    </View>
                 </View>
             </View>
         )
@@ -75,12 +81,28 @@ const styles=StyleSheet.create({
         height:150,
       },
       bookcontent:{
-        margin:15
+        margin:15,
+        flexDirection:'column',
+      },
+      textcontent:{
+          flex:1,
+      },
+      buttoncontent:{
+          flexDirection:'row',
+          flex:1,
       },
       whatbook:{
         margin:1,
         flexDirection:'row',
         borderWidth:0.5,
-        borderColor:'black'
+        borderColor:'black',
       },
+      bookDescribeTitle:{
+        fontSize: 20,
+        marginBottom:20
+    },
+      bookDescribe:{
+        fontSize: 15,
+        marginBottom:3,
+    },
 })
