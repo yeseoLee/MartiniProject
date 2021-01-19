@@ -61,16 +61,16 @@ class MypageScreen extends React.Component{
   render() {
     return (
       <Container>
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
           <UserScreen/>
           <ScrollView>
             <View> 
               <FlatList data = {DATA}
                          renderItem={({item}) => <BookScreen name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone} publisher={item.publisher}
-                         bookCondition = {item.bookCondition}/>} />
+                         bookCondition = {item.bookCondition}/>} 
+                         windowSize={2}/>
             </View>
-          </ScrollView>
-          
+            </ScrollView>
           <View style={{height: 50, flexDirection: 'row', alignItems: 'center',margin:15}}>
             <View style={{flex: 1, height: 50, flexDirection: 'column', borderWidth: 0.5, borderLeftWidth: 0, borderRightWidth: 0, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
              <TouchableOpacity>
@@ -92,7 +92,7 @@ class MypageScreen extends React.Component{
               <Text>Q&A</Text>
             </View>
           </View>
-      </ScrollView>
+      </View>
       </Container>
     );
   }
