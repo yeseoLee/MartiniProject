@@ -12,8 +12,6 @@ export default class AddTab extends React.Component{
         )
     }
     
-
-
     alertSave = () => {
         Alert.alert(
             "글쓰기",
@@ -89,10 +87,14 @@ export default class AddTab extends React.Component{
                     <TextInput 
                         style={styles.textForm} 
                         placeholder={"연락처"}/>
-               
-                    <TextInput 
-                        style={styles.textForm} 
-                        placeholder={"사진 불러오기  or  카메라 촬영"}/>   
+                    <View style={styles.cam}>
+                        <Button
+                            title="이미지"
+                            //onPress={this.alertSave}
+                            color='#888'
+                            />
+                    </View>
+                    
                 </View>
 
                 <View style={styles.buttonclick}>
@@ -110,8 +112,8 @@ export default class AddTab extends React.Component{
 const styles = StyleSheet.create({
     container: {
         marginTop:20,
-       paddingTop:10,
-       marginBottom:70,
+        paddingTop:10,
+        marginBottom:70,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -127,6 +129,9 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
         marginTop:12
     },
+    cam: {
+        marginTop:12
+    },
     buttonclick: {
         flexDirection:'row',
         justifyContent:'center',
@@ -134,7 +139,6 @@ const styles = StyleSheet.create({
     header:{
         backgroundColor:'white',
     },
-    
     headertext:{
         marginLeft:5,
         color:'gray',
