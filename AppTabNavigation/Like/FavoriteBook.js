@@ -15,6 +15,7 @@ export default class FavoriteBook extends React.Component{
         };
     }
 
+
     updateHeartColor = () => {
         if(this.state.heartColor === "#fa576d"){
             this.setState({
@@ -59,7 +60,7 @@ export default class FavoriteBook extends React.Component{
         <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:1}}>                
             <TouchableOpacity style={styles.ItemStyle} onPress={this.openModal.bind(this)}>
                     <Book visible={this.state.modalVisible} closeModal = {this.closeModal.bind(this)} bookName={this.props.name} className={this.props.className} price={this.props.price}
-                    publisher={this.props.publisher} bookCondition={this.props.bookCondition} img = {this.props.img}/>
+                    publisher={this.props.publisher} bookCondition={this.props.bookCondition} img = {this.props.img} category={this.props.category} phone={this.props.phone} />
                     <Image style={styles.bookImage} source={this.props.img} />
                     <View style={{ width:200,  flexDirection:'column'}}>
                         <Text style={styles.bookDescribeTitle}>{this.props.name}</Text>

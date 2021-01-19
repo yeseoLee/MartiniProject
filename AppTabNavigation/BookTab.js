@@ -18,15 +18,12 @@ export default class BookTab extends React.Component{
           Alert.alert("SMS 기능 사용 불가", "ㅠ-ㅠ");
         }
     };
-    
-    alertPush = () => {
-        Alert.alert("문자를 보냅니다")
-    }
 
     
     render() {
         return(
         <Modal visible={this.props.visible} animationType='fade' onRequestClose={this.props.closeModal}>
+
             <Header style={styles.header}>
                 <Left>
                 <TouchableOpacity onPress={this.props.closeModal}>                    
@@ -35,24 +32,47 @@ export default class BookTab extends React.Component{
                 </Left>
                 <Body></Body>
             </Header>
+
+<View style={styles.Container}>
             <View style={styles.UpperContainer}>
-                <Image style={styles.bookImage} source = {this.props.img}/>
+                <View style={styles.Imgborder}>
+                    <Image style={styles.bookImage} source = {this.props.img}/>
+                </View>
                 <View style={{justifyContent:'center'}}>
                     <Text style={{fontSize: 20, marginBottom:10}}>{this.props.bookName}</Text>
-                    <Text style={styles.bookDescribe}>{this.props.publisher}</Text>
-                    <Text style={styles.bookDescribe}>{this.props.price}</Text>
+                    <View style={styles.sell}>
+                        <View style={styles.inforName}>
+                            <Text style={styles.infor1}>출판사</Text>
+                            <Text style={styles.infor1}>카테고리</Text>
+                            <Text style={styles.infor1}>과목명</Text>
+                            <Text style={styles.infor1}>가격</Text>
+                        </View>
+                        <View style={styles.inforDetail}>
+                            <Text style={styles.infor2}>{this.props.publisher}</Text>
+                            <Text style={styles.infor2}> {this.props.category}</Text>
+                            <Text style={styles.infor2}>{this.props.className}</Text>
+                            <Text style={styles.infor2}>{this.props.price}원</Text>
+                        </View>
+                    </View>
                 </View>
-            </View>
-            <View style={styles.ButtomContainer}>
+</View>
+            <View style={styles.BottomContainer}>
                 <View>
-                    <Text style={styles.bookDescribeButtom}>교재명: {this.props.bookName}</Text>
-                    <Text style={styles.bookDescribeButtom}>가격: {this.props.price}</Text>
-                    <Text style={styles.bookDescribeButtom}>수업과목: {this.props.className}</Text>
-                    <Text style={styles.bookDescribeButtom}>훼손상태: {this.props.bookCondition}</Text>
+                    <Text style={styles.Seller}> 훼손 상태 및 부가 설명</Text>
+                    <View style={styles.detail}>
+                        <Text style={styles.bookDescribeButtom}>훼손상태: {this.props.bookCondition}</Text>
+                    </View>
                 </View>
             </View>
-            <View style={styles.ButtonContainer}>
-                <Button title="판매자에게 쪽지 보내기" color = "#303D74" onPress={this.alertPush.bind(this)}></Button>
+
+
+            <View style={styles.Message}>
+                <Text style={styles.Seller}>판매자에게 연락</Text>
+                <TouchableOpacity onPress={this.props.getSMS}>                    
+                    <Ionicons name = 'arrow-back' size = {30} />
+                </TouchableOpacity>
+            </View>
+            
             </View>
         </Modal>)
     }
@@ -60,28 +80,71 @@ export default class BookTab extends React.Component{
 
 const styles = StyleSheet.create({
     Container:{
-        backgroundColor:"#303D74", 
-        justifyContent: 'space-between',
-        alignItems:'center',
-        padding:20
+
+        flexDirection:'column',
+        flex:1,
     },    
+    Seller:{
+        paddingTop:30,
+   
+        paddingLeft:30,
+        fontSize:18,
+    },
+    Imgborder:{
+        borderWidth:3,
+        borderColor:'#303D74',
+    },
+    sell:{
+        flexDirection:'row'
+    },
+    inforName:{
+        flexDirection:'column',
+        color:'red',
+        marginRight:10,
+    },
+    inforDetail:{
+        flexDirection:'column',
+    },
+    infor1:{
+        color:'gray',
+        fontSize:15
+    },
+    infor2:{
+      fontSize:15
+    },
+    detail:{
+        paddingLeft:20,
+        paddingRight:20,
+        paddingBottom:10,
+        paddingTop:10,
+        marginLeft:20,
+        marginRight:20,
+        marginTop:20,
+        marginBottom:20,
+        borderRadius:10,
+        borderColor:'#303D74',
+        borderWidth:2,
+    },
     UpperContainer: {
+        paddingBottom:20,
+        paddingTop:20,
+        borderBottomColor:"lightgray",
+        borderBottomWidth:2,
         flexDirection:'row',
         justifyContent: 'space-evenly',
         alignItems:'center',
-        flex:1,
-        borderRadius: 20
+  
     },
-    ButtomContainer:{
-        justifyContent:"space-around",
-        flex:1,
-        borderRadius: 20
+    BottomContainer:{
+        borderBottomColor:"lightgray",
+        borderBottomWidth:2,
+
     },
     ButtonContainer:{
-        alignItems:'center', 
-        justifyContent:'center',
-        flex:1,
-        borderRadius: 20
+        color:'orange',
+
+        borderRadius:5,
+        borderColor:'white',
     },
     header:{
         backgroundColor:'white',
@@ -93,17 +156,16 @@ const styles = StyleSheet.create({
         alignItems:'flex-start'
     },
     bookImage:{
-        width: 150,
+        width: 100,
         marginBottom:5,
-        height:200,
-    },
-    bookDescribe:{
-        fontSize: 15,
-        marginBottom:3
+        height:150,
     },
     bookDescribeButtom:{
-        fontSize: 20,
-        paddingLeft: 40,
-        marginBottom:3
+        fontSize:15
+    },
+    Message:{
+      backgroundColor:'red',
+        borderBottomColor:"lightgray",
+        borderBottomWidth:2,
     }
 })

@@ -12,31 +12,31 @@ import UserScreen from './Profile/user.js';
 
 const DATA=[
   {key:uuid(),
-  title:'C프로그래밍',
-  className:'C프로그래밍및 실습',
-  price:'10,000',
-  img:require('./Profile/images/c.png'),
-  phone:'01040941308',
-  publisher:'세종출판사',
-  bookCondition:'양호',
+    title:'C 프로그래밍',
+    className:'C 프로그래밍및실습',
+    price:'10,000',
+    img:require('./Profile/images/c.png'),
+    phone:'01040941308',
+    publisher:'세종출판사',
+    bookCondition:'양호',
   },
   {key:uuid(),
     title:'미분적분학',
     className:'미분적분학',
     price:'10,000',
+    img:require('./Profile/images/image2.png'),
     phone:'01040941308',
     publisher:'세종출판사',
     bookCondition:'양호',
-    img:require('./Profile/images/image2.png'),
     },
     {key:uuid(),
       title:'미분적분학',
       className:'미분적분학',
       price:'10,000',
+      img:require('./Profile/images/image2.png'),
       phone:'01040941308',
       publisher:'세종출판사',
       bookCondition:'양호',
-      img:require('./Profile/images/image2.png'),
       },
 ]
 
@@ -61,16 +61,14 @@ class MypageScreen extends React.Component{
   render() {
     return (
       <Container>
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
           <UserScreen/>
-          <ScrollView>
-            <View style={styles.whatbook}> 
+            <View style={{flex:1}}> 
               <FlatList data = {DATA}
                          renderItem={({item}) => <BookScreen name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone} publisher={item.publisher}
-                         bookCondition = {item.bookCondition}/>} />
+                         bookCondition = {item.bookCondition}/>} 
+                         windowSize={2}/>
             </View>
-          </ScrollView>
-          
           <View style={{height: 50, flexDirection: 'row', alignItems: 'center',margin:15}}>
             <View style={{flex: 1, height: 50, flexDirection: 'column', borderWidth: 0.5, borderLeftWidth: 0, borderRightWidth: 0, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
              <TouchableOpacity>
@@ -92,7 +90,7 @@ class MypageScreen extends React.Component{
               <Text>Q&A</Text>
             </View>
           </View>
-      </ScrollView>
+      </View>
       </Container>
     );
   }
@@ -132,37 +130,4 @@ const styles = StyleSheet.create({
     padding: 5,
     //backgroundColor:'#303D73',
   },
-  header: {
-    flexDirection: 'row',
-    width:'100%',
-    height:'5%',
-  },
-  title: {
-    flexDirection: 'row',
-    width:'100%',
-    height:'18%',
-    alignItems:'center'
-  },
-  content: {
-    flex: 1,
-    paddingLeft:10,
-    paddingRight:10,
-    paddingBottom:30,
-  },
-  footer: {
-    width:'100%',
-    height:'20%',
-  },
-  booK:{
-    borderWidth:0.5,
-    borderColor:'black',
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-    paddingBottom:10,
-  },  
-  user:{
-    margin:15,
-    backgroundColor:'white',
-  }
 })
