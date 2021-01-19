@@ -12,17 +12,32 @@ import UserScreen from './Profile/user.js';
 
 const DATA=[
   {key:uuid(),
-  title:'c프로그래밍',
+  title:'C프로그래밍',
+  className:'C프로그래밍및 실습',
+  price:'10,000',
   img:require('./Profile/images/c.png'),
+  phone:'01040941308',
+  publisher:'세종출판사',
+  bookCondition:'양호',
   },
   {key:uuid(),
     title:'미분적분학',
+    className:'미분적분학',
+    price:'10,000',
+    phone:'01040941308',
+    publisher:'세종출판사',
+    bookCondition:'양호',
     img:require('./Profile/images/image2.png'),
     },
-  {key:uuid(),
-    title:'미분적분학',
-    img:require('./Profile/images/image2.png'),
-  },
+    {key:uuid(),
+      title:'미분적분학',
+      className:'미분적분학',
+      price:'10,000',
+      phone:'01040941308',
+      publisher:'세종출판사',
+      bookCondition:'양호',
+      img:require('./Profile/images/image2.png'),
+      },
 ]
 
 class MypageScreen extends React.Component{
@@ -51,7 +66,8 @@ class MypageScreen extends React.Component{
           <ScrollView>
             <View style={styles.whatbook}> 
               <FlatList data = {DATA}
-                         renderItem={({item}) => <BookScreen name={item.title} img={item.img}/>} />
+                         renderItem={({item}) => <BookScreen name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone} publisher={item.publisher}
+                         bookCondition = {item.bookCondition}/>} />
             </View>
           </ScrollView>
           

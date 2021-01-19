@@ -7,14 +7,34 @@ import {createAppContainer, ThemeColors} from 'react-navigation';
 import * as MailComposer from 'expo-mail-composer';
 import uuid from 'react-uuid'
 
+import Book from '../BookTab';
+
 export default class BookScreen extends React.Component{
-    state={
-        seg: 1,
+    
+    constructor() {
+        super();
+        this.state = {
+            modalVisible: false,
+            seg:1,
+        };
+    }
+    openModal=()=>{
+        this.setState({
+            modalVisible:true
+        })
+    }
+    closeModal=()=>{
+        this.setState({
+            modalVisible:false
+        })
     }
     render(){
         return(
-            <View style={styles.whatbook}>
+            <View>
+                <TouchableOpacity style={styles.whatbook} onPress={this.openModal.bind(this)}>
                 <View>
+                <Book visible={this.state.modalVisible} closeModal = {this.closeModal.bind(this)} bookName={this.props.name} className={this.props.className} price={this.props.price}
+                    publisher={this.props.publisher} bookCondition={this.props.bookCondition} img = {this.props.img}/>
                     <Image style={styles.image}
                     source={this.props.img}/>
                 </View>
@@ -41,6 +61,7 @@ export default class BookScreen extends React.Component{
                         </Button>
                     </Segment> 
                 </View>
+                </TouchableOpacity>
             </View>
         )
     }
