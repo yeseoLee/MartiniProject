@@ -30,13 +30,14 @@ export default class BookScreen extends React.Component{
     }
     render(){
         return(
-            <View>
-                <TouchableOpacity style={styles.whatbook} onPress={this.openModal.bind(this)}>
+            <View style={styles.whatbook}>
                 <View>
                 <Book visible={this.state.modalVisible} closeModal = {this.closeModal.bind(this)} bookName={this.props.name} className={this.props.className} price={this.props.price}
                     publisher={this.props.publisher} bookCondition={this.props.bookCondition} img = {this.props.img}/>
+                    <TouchableOpacity  onPress={this.openModal.bind(this)}>
                     <Image style={styles.image}
                     source={this.props.img}/>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.bookcontent}>
                     <Text>{this.props.name}</Text>
@@ -61,7 +62,6 @@ export default class BookScreen extends React.Component{
                         </Button>
                     </Segment> 
                 </View>
-                </TouchableOpacity>
             </View>
         )
     }
