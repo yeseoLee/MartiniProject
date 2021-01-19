@@ -46,15 +46,13 @@ export default class FavoriteBook extends React.Component{
         // Alert.alert("판매페이지로 넘어갑니다")
         this.setState({ 
             modalVisible:true
-        })         
-        console.log(this.state.modalVisible)
+        })
     }
     closeModal = () => {
         // Alert.alert("판매페이지로 넘어갑니다")
         this.setState({ 
             modalVisible:false
-        })         
-        console.log(this.state.modalVisible)
+        })
     }
 
     render() {
