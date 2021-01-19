@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
     },
     bodyContainer:{
         height:'93%',
+        flex:1,
     },
     header:{
         backgroundColor:'white',
