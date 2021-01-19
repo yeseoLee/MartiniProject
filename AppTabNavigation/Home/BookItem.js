@@ -4,6 +4,8 @@ import { Ionicons } from '@expo/vector-icons';
 import * as SMS from 'expo-sms';
 import uuid from 'react-uuid';
 
+import Book from '../BookTab'
+
 const brandPrimary = 'white'
 
 export default class BookItem extends React.Component{
@@ -12,7 +14,8 @@ export default class BookItem extends React.Component{
     constructor() {
         super();
         this.state = {
-            heartColor:'lightgray'
+            heartColor:'lightgray',
+            modalVisible:false
         };
     }
 
@@ -47,8 +50,17 @@ export default class BookItem extends React.Component{
         Alert.alert("관심목록", "삭제되었습니다")
     }
 
-    alertPush = () => {
-        Alert.alert("판매페이지로 넘어갑니다")
+    openModal = () => {
+        // Alert.alert("판매페이지로 넘어갑니다")
+        this.setState({ 
+            modalVisible:true
+        })
+    }
+    closeModal = () => {
+        // Alert.alert("판매페이지로 넘어갑니다")
+        this.setState({ 
+            modalVisible:false
+        })
     }
 
 
@@ -56,7 +68,9 @@ export default class BookItem extends React.Component{
     render() {
         return (
             <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:1}}>                
-                <TouchableOpacity style={styles.ItemStyle} onPress={this.alertPush}>
+                <TouchableOpacity style={styles.ItemStyle} onPress={this.openModal.bind(this)}>
+                    <Book visible={this.state.modalVisible} closeModal = {this.closeModal.bind(this)} bookName={this.props.name} className={this.props.className} price={this.props.price}
+                    publisher={this.props.publisher} bookCondition={this.props.bookCondition} img = {this.props.img}/>
                     <Image style={styles.bookImage} source={this.props.img} />
                     <View style={styles.bookDescribe}>
                         <Text style={styles.bookDescribe2}>{this.props.BookName}</Text>

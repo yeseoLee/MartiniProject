@@ -13,74 +13,58 @@ const brandPrimary = 'white';
 
 const DATA = [    
     {key: uuid(),      //각 값마다 고유 key값 부여
-     title: '실전 C프로그래밍',
-     className:'고급 C프로그래밍',
-     price: "12,000원",
-     img: require("./Profile/images/c.png"),
-     phone: '01066285506'
-    },
-    {key:  uuid(),
-     title: '미분적분학1',
-     className:'일변수 미적분학',
-     price: '18,000원',
-     img: require('./Profile/images/image2.png'),
-     phone: '01090655436'
-    },
-    {key:  uuid(),
-     title: '알고리즘 원리와 응용',
-     className:'알고리즘 및 실습',
-     price: '13,000원',
-     img: require('./Profile/images/algo.png'),
-     phone: '01046785984'
-    },
-    {key:  uuid(),
-     title: '해커스 토익 RC',
-     className:'토익',
-     price: '9,000원',
-     img: require('./Profile/images/toeic.png'),
-     phone: '01057499394'
-    },
-    {key:  uuid(),
-     title: '통계학개론 제 3판',
-     className:'통계학개론',
-     price: '17,000원',
-     img: require('./Profile/images/statistic.png'),
-     phone: '01041793445'
+     title: '소프트웨어 교육론',
+     className:'소프트웨어의 원리와 이해',
+     price: '10,000',
+     img: require('./Like/bookImg.jpg'),
+     phone: '01066285506',
+     publisher: '세종출판사',
+     bookCondition: '양호'
     },
     {key:  uuid(),
      title: '실전 C프로그래밍',
      className:'고급 C프로그래밍',
-     price: '12,000원',
+     price: '10,000',
      img: require('./Profile/images/c.png'),
-     phone: '01066176371'
+     phone: '01090655436',
+     publisher: '세종출판사',
+     bookCondition: '양호'
     },
     {key:  uuid(),
-     title: '미분적분학1',
-     className:'일변수 미적분학',
-     price: '18,000원',
-     img: require('./Profile/images/image2.png'),
-     phone: '01057499394'
-    },
-    {key:  uuid(),
-     title: '알고리즘 원리와 응용',
+     title: '알고리즘',
      className:'알고리즘 및 실습',
-     price: '13,000원',
+     price: '10,000',
      img: require('./Profile/images/algo.png'),
-     phone: '01046785984'
+     phone: '01046785984',
+     publisher: '세종출판사',
+     bookCondition: '양호'
+    },
+    {key:  uuid(),
+     title: '통계학개론',
+     className:'통계학개론',
+     price: '10,000',
+     img: require('./Profile/images/statistic.png'),
+     phone: '01057499394',
+     publisher: '세종출판사',
+     bookCondition: '양호'
     },
     {key:  uuid(),
      title: '해커스 토익 RC',
      className:'토익',
-     price: '9,000원',
+     price: '10,000',
      img: require('./Profile/images/toeic.png'),
-     phone: '01057499394'
+     phone: '01041793445',
+     publisher: '세종출판사',
+     bookCondition: '양호'
     },
     {key:  uuid(),
-     title: '통계학개론 제 3판',
-     className:'통계학개론',
-     price: '17,000원',
-     img: require('./Profile/images/statistic.png'),
-     phone: '01041793445'
+     title: '미분적분학',
+     className:'일변수 미적분학',
+     price: '10,000',
+     img: require('./Profile/images/image2.png'),
+     phone: '01066176371',
+     publisher: '세종출판사',
+     bookCondition: '양호'
     },
 ];
 
@@ -135,7 +119,8 @@ export default class HomeTab extends React.Component{
                     </Item>
                 </Header>
                 <View style={styles.content}>
-                    <FlatList data = {DATA} renderItem={({item}) => <BookItem BookName={item.title} ClassName={item.className} price={item.price} img={item.img} phone={item.phone}/>} />
+                    <FlatList data = {DATA} renderItem={({item}) => <BookItem BookName={item.title} ClassName={item.className} price={item.price} img={item.img} phone={item.phone}publisher={item.publisher}
+                         bookCondition = {item.bookCondition}/>} />
                 </View>
             </Container>
         );
