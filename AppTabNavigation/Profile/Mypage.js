@@ -7,15 +7,15 @@ import {createAppContainer, ThemeColors} from 'react-navigation';
 import * as MailComposer from 'expo-mail-composer';
 import uuid from 'react-uuid'
 
-import BookScreen from'./Profile/book';
-import UserScreen from './Profile/user';
+import BookScreen from'./book';
+import UserScreen from './user';
 
 const DATA=[
     {key:uuid(),
       title:'C 프로그래밍',
       className:'C 프로그래밍및실습',
       price:'10,000',
-      img:require('./Profile/images/c.png'),
+      img:require('./images/c.png'),
       phone:'01040941308',
       publisher:'세종출판사',
       bookCondition:'양호',
@@ -24,7 +24,7 @@ const DATA=[
       title:'미분적분학',
       className:'미분적분학',
       price:'10,000',
-      img:require('./Profile/images/image2.png'),
+      img:require('./images/image2.png'),
       phone:'01040941308',
       publisher:'세종출판사',
       bookCondition:'양호',
@@ -33,7 +33,7 @@ const DATA=[
         title:'미분적분학',
         className:'미분적분학',
         price:'10,000',
-        img:require('./Profile/images/image2.png'),
+        img:require('./images/image2.png'),
         phone:'01040941308',
         publisher:'세종출판사',
         bookCondition:'양호',
