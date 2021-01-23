@@ -15,7 +15,6 @@ const AppHomeNavigator = createDrawerNavigator({
     Etc:{screen:EtcScreen}
 });
 
-const AppHomeConatainer = createAppContainer(AppHomeNavigator);
 
 export default class HomeTabMain extends React.Component{
     static navigationOptions = {
@@ -23,10 +22,11 @@ export default class HomeTabMain extends React.Component{
             <Ionicons name = 'ios-home' size = {26} style = {{color:tintColor}}/>
         )
     }
+    static router=AppHomeNavigator.router;
 
     render() {
         return(
-            <AppHomeConatainer />
+            <AppHomeNavigator navigation={this.props.navigation} />
         )
     }
 }
