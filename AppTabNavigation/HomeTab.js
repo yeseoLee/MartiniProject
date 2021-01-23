@@ -73,18 +73,15 @@ export default class HomeTab extends React.Component{
         super();
     }
     
-    navigateToSub = () => {
-        this.props.navigation.navigate('Sub');
-      }
-
-    static navigationOptions = {
-        tabBarIcon: ({tintColor}) => (
-            <Ionicons name = 'ios-home' size = {26} style = {{color:tintColor}}/>
-        )
-    }
+    // static navigationOptions = {
+    //     tabBarIcon: ({tintColor}) => (
+    //         <Ionicons name = 'ios-home' size = {26} style = {{color:tintColor}}/>
+    //     )
+    // }
 
     navigateToSub = () => {
-        this.props.navigation.navigate('Sub');
+        // this.props.navigation.navigate('Sub');
+        this.props.navigation.openDrawer();
     }
 
     getSMS = async() => {
@@ -107,6 +104,7 @@ export default class HomeTab extends React.Component{
             <Container>
                 <Header searchBar style={styles.header}>
                     <Left>
+                        {/* <Button transparent onPress={this.navigateToSub}> */}
                         <Button transparent onPress={this.navigateToSub}>
                             <Ionicons name = "reorder-four-outline" 
                                 size = {30}

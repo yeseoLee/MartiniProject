@@ -164,7 +164,6 @@ const styles = StyleSheet.create({
         fontSize:15
     },
     Message:{
-      backgroundColor:'red',
         borderBottomColor:"lightgray",
         borderBottomWidth:2,
     }
