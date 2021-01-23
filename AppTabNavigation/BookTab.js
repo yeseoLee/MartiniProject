@@ -6,9 +6,7 @@ import * as SMS from 'expo-sms';
 
 export default class BookTab extends React.Component{
     
-    constructor(props) {
-        super(props);
-    }
+
 
     getSMS = async() => {
         try{
@@ -18,6 +16,36 @@ export default class BookTab extends React.Component{
           Alert.alert("SMS 기능 사용 불가", "ㅠ-ㅠ");
         }
     };
+
+    constructor() {
+        super();
+        this.state = {
+            heartColor:'lightgray',
+            modalVisible:false
+        };
+    }
+
+    updateHeartColor = () => {
+        if(this.state.heartColor === "#F15F5F"){
+            this.setState({
+                heartColor:'lightgray'
+            })
+            this.alertDelete()
+        }else{
+            this.setState({
+                heartColor:'#F15F5F'
+            })
+            this.alertAdd()
+        }
+    }
+
+    alertAdd = () => {
+        Alert.alert("관심목록", "추가되었습니다")
+    }
+
+    alertDelete = () => {
+        Alert.alert("관심목록", "삭제되었습니다")
+    }
 
     
     render() {
@@ -46,12 +74,16 @@ export default class BookTab extends React.Component{
                             <Text style={styles.infor1}>카테고리</Text>
                             <Text style={styles.infor1}>과목명</Text>
                             <Text style={styles.infor1}>가격</Text>
+                            <Text style={styles.infor1}>찜하기</Text>
                         </View>
                         <View style={styles.inforDetail}>
                             <Text style={styles.infor2}>{this.props.publisher}</Text>
                             <Text style={styles.infor2}> {this.props.category}</Text>
                             <Text style={styles.infor2}>{this.props.className}</Text>
                             <Text style={styles.infor2}>{this.props.price}원</Text>
+                            <TouchableOpacity>
+                            <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
+                        </TouchableOpacity>
                         </View>
                     </View>
                 </View>

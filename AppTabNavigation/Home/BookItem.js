@@ -81,9 +81,6 @@ export default class BookItem extends React.Component{
                         <TouchableOpacity>
                             <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={this.getSMS}>
-                            <Ionicons name = 'chatbubble-ellipses-outline'  size = {30}/>
-                        </TouchableOpacity>
                     </View>
             </TouchableOpacity>
            </View>

@@ -157,6 +157,7 @@ const styles = StyleSheet.create({
         color: 'black',
     },
     bodyContainer:{
+        paddingTop:10,
         paddingBottom:100,
     },
     header:{
@@ -164,7 +165,7 @@ const styles = StyleSheet.create({
     },
     headertext:{
         marginLeft:5,
-        color:'gray',
+        color:'#303D74',
         fontSize:20,
 
     }

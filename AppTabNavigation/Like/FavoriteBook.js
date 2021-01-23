@@ -67,7 +67,7 @@ export default class FavoriteBook extends React.Component{
                         <Text style={ styles.bookDescribe}>🎓 {this.props.className}</Text>
                         <Text style={ styles.bookDescribe}>💲 {this.props.price}</Text>
                     </View>
-                    <View stlye={styles.button}>
+                    <View style={styles.buttonStyle}>
                         <TouchableOpacity>
                             <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
                         </TouchableOpacity>
@@ -107,4 +107,8 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginBottom:3
     },
+    buttonStyle:{
+        alignItems:'flex-end',
+        flex:0.9,
+    }
 });
