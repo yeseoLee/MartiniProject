@@ -8,6 +8,7 @@ import * as MailComposer from 'expo-mail-composer';
 import uuid from 'react-uuid'
 
 import Book from '../BookTab';
+import { on } from 'events';
 
 export default class BookScreen extends React.Component{
     
@@ -22,6 +23,31 @@ export default class BookScreen extends React.Component{
         this.setState({
             modalVisible:true
         })
+    }
+    yalert=()=>{
+        if(this.state.seg==1){
+            this.setState({
+                seg:2
+            })
+        }
+        else{
+            this.setState({
+                seg:1
+            })
+        }
+    }
+    
+    alertSave=()=>{
+        Alert.alert(
+            "판매완료",
+            "상태를 수정하시겠습니까?",
+            [
+                {text:'아니오', onPress:()=>null},
+                {text:'예',onPress:this.yalert},
+            ],
+            {cancelable:true}
+        )
+        
     }
     closeModal=()=>{
         this.setState({
@@ -53,7 +79,7 @@ export default class BookScreen extends React.Component{
 								}}
 								first
 								active={this.state.seg === 1 ? true : false}
-								onPress={() => this.setState({ seg: 1 })}>
+								onPress={this.alertSave}>
                             <Text style={{ color: this.state.seg === 1 ? "white" : "#303D74" }}>  판매중  </Text>
                             </Button>
                             <Button last
@@ -62,7 +88,7 @@ export default class BookScreen extends React.Component{
 									borderColor: "#303D74",
 								}}
 								active={this.state.seg === 2 ? true : false}
-								onPress={() => this.setState({ seg: 2 })}>
+								onPress={this.alertSave}>
                                 <Text style={{ color: this.state.seg === 1 ? "#303D74" : "white" }}>  판매완료  </Text>
                             </Button>
                         </Segment> 
