@@ -73,11 +73,12 @@ export default class HomeTab extends React.Component{
         super();
     }
     
-    // static navigationOptions = {
-    //     tabBarIcon: ({tintColor}) => (
-    //         <Ionicons name = 'ios-home' size = {26} style = {{color:tintColor}}/>
-    //     )
-    // }
+    static navigationOptions = {
+        // tabBarIcon: ({tintColor}) => (
+        //     <Ionicons name = 'ios-home' size = {26} style = {{color:tintColor}}/>
+        // )
+        drawerLabel:'전체'
+    }
 
     navigateToSub = () => {
         // this.props.navigation.navigate('Sub');
