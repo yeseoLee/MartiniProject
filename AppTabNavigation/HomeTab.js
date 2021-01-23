@@ -128,24 +128,20 @@ export default class HomeTab extends React.Component{
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
         alignItems:'center',
         justifyContent: 'center',
-    },
+    },  
     header:{
-        backgroundColor: 'white',
+        backgroundColor:'white'
     },
     search:{
-        flex: 2,
         marginRight: 10,
-        backgroundColor: "#ededed"
+        backgroundColor: "#ededed",
+        flex:2
     },
     content: {
         marginTop:10,
-        flex: 1,
-        paddingLeft:10,
-        paddingRight:10,
-        paddingBottom:30,
+        paddingBottom:50,
         //backgroundColor: '#d6ca1a',
       }
 });

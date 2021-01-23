@@ -57,7 +57,7 @@ export default class FavoriteBook extends React.Component{
 
     render() {
         return (
-        <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:1}}>                
+        <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:0.5}}>                
             <TouchableOpacity style={styles.ItemStyle} onPress={this.openModal.bind(this)}>
                     <Book visible={this.state.modalVisible} closeModal = {this.closeModal.bind(this)} bookName={this.props.name} className={this.props.className} price={this.props.price}
                     publisher={this.props.publisher} bookCondition={this.props.bookCondition} img = {this.props.img} category={this.props.category} phone={this.props.phone} />
@@ -67,7 +67,7 @@ export default class FavoriteBook extends React.Component{
                         <Text style={ styles.bookDescribe}>🎓 {this.props.className}</Text>
                         <Text style={ styles.bookDescribe}>💲 {this.props.price}</Text>
                     </View>
-                    <View style={{justifyContent:'space-around', flex:1, alignItems:'flex-end'}}>
+                    <View stlye={styles.button}>
                         <TouchableOpacity>
                             <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
                         </TouchableOpacity>
@@ -86,15 +86,12 @@ export default class FavoriteBook extends React.Component{
 const styles = StyleSheet.create({
     
     ItemStyle:{
-        marginBottom:0,
         borderBottomColor:'lightgrey',
-        borderBottomWidth:1,
-        justifyContent: 'space-around',
+        borderBottomWidth:0.5,
         alignItems: 'center',
         flexDirection: 'row',
-        margin:5,
-        paddingLeft: 25,
-        paddingRight: 25
+        margin:0,
+        paddingLeft: 10,
     },    
     bookImage:{
         marginRight:20,

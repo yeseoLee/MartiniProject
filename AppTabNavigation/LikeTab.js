@@ -147,8 +147,8 @@ export default class LikeTab extends React.Component{
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        backgroundColor: 'white'
+
+
     },
 
     headerTextStyle:{
@@ -157,16 +157,15 @@ const styles = StyleSheet.create({
         color: 'black',
     },
     bodyContainer:{
-        height:'93%',
+        paddingBottom:100,
     },
     header:{
         backgroundColor:'white',
-        alignItems:'flex-start'
     },
     headertext:{
         marginLeft:5,
         color:'gray',
         fontSize:20,
-        alignItems:'flex-start'
+
     }
 });

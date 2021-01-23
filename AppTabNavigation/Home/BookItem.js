@@ -77,7 +77,7 @@ export default class BookItem extends React.Component{
                         <Text style={styles.bookDescribe3}>🎓 {this.props.ClassName}</Text>
                         <Text style={styles.bookDescribe3}>💲 {this.props.price}</Text>
                     </View>
-                    <View style={justifyContent='space-around'}>
+                    <View style={styles.button}>
                         <TouchableOpacity>
                             <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
                         </TouchableOpacity>
@@ -93,36 +93,31 @@ export default class BookItem extends React.Component{
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
         alignItems:'center',
         justifyContent: 'center',
     },
     header:{
-        backgroundColor: 'white',
+        backgroundColor: 'gray',
     },
     search:{
-        flex: 2,
         marginRight: 10,
         backgroundColor: "#ededed"
     },
     content: {
-        flex: 1,
         paddingLeft:10,
         paddingRight:10,
         paddingBottom:30,
         //backgroundColor: '#d6ca1a',
       },
       ItemStyle:{
-        marginBottom:0,
         // borderBottomColor:'lightgrey',
         // borderBottomWidth:1,
-        justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: 'white',
+        justifyContent:'flex-start',
         flexDirection: 'row',
-        margin:5,
-        paddingLeft: 15,
-        paddingRight: 15
+        paddingLeft: 10,
+
+
     },    
     bookImage:{
         width: 90,
@@ -130,7 +125,7 @@ const styles = StyleSheet.create({
         height:120,
     },
     bookDescribe:{
-        width:200,
+        paddingLeft:30,
         flexDirection:'column',
         fontSize: 20
     },
@@ -142,4 +137,8 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginBottom:3
     },
+    button:{
+        flex:0.9,
+        alignItems:'flex-end',
+    }
 });
