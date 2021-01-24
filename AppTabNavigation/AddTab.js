@@ -11,26 +11,57 @@ export default class AddTab extends React.Component{
             <Ionicons name = 'add-outline' size = {26} style = {{color:tintColor}}/>
         )
     }
-    
+    constructor(){
+        super();
+        this.state={
+            text:"hello",
+            item: null,
+        }
+        this.inputText1='';
+        this.inputText2='';
+        this.inputText3='';
+        this.inputText4='';
+        this.inputText5='';
+        this.inputText6='';
+    }
 
+
+    changeText1=(value)=>{
+        this.inputText1=value;
+    }
+    changeText2=(value)=>{
+        this.inputText2=value;
+    }
+    changeText3=(value)=>{
+        this.inputText3=value;
+    }
+    changeText4=(value)=>{
+        this.inputText4=value;
+    }
+    changeText5=(value)=>{
+        this.inputText5=value;
+    }
+    changeText6=(value)=>{
+        this.inputText6=value;
+    }
 
     alertSave = () => {
         Alert.alert(
             "글쓰기",
-            " 도서명 : 밍밍 프로그래밍 \n 출판사 : 마티니 출판 \n 수업과목 : 고급 C 프로그래밍 \n 판매가격 : 10,000원 \n 훼손상태 : 표지 낙서 약간 \n 연락처 : 01090655436 \n 사진 \n\n 저장하시겠습니까?",
+            "판매글을 작성하시겠습니까?",
             [
                 {text: '아니오', onPress: () => null},
                 {text: '예', onPress: this.props.navigation.goBack()}, // 21.01.15 아니오 누르면 에러 안 뜸 / 예 누르면 에러 뜸 
             ],
             { cancelable: true }
         )
+
+        console.log(this.inputText1,
+            this.inputText2,this.inputText3,this.inputText4,this.inputText5,this.inputText6,)
     }
 
     //카메라 & 갤러리 react-native permission 추가해야 함
 
-    state ={
-        item: null
-    }
    
     render(){
         return (
@@ -67,28 +98,38 @@ export default class AddTab extends React.Component{
                                             
                     <TextInput 
                         style={styles.textForm} 
-                        placeholder={"도서명"}/>
-                
+                        placeholder={"도서명"}
+                        onChangeText={this.changeText1}
+                        
+                        />
                     <TextInput 
                         style={styles.textForm} 
-                        placeholder={"출판사"}/>
+                        placeholder={"출판사"}
+                        onChangeText={this.changeText2}
+                        />
                
                     <TextInput 
                         style={styles.textForm} 
-                        placeholder={"수업 과목"}/>
+                        placeholder={"수업 과목"}
+                        onChangeText={this.changeText3}
+                        />
                 
                     <TextInput 
                         style={styles.textForm} 
-                        placeholder={"판매 가격"}/>
+                        placeholder={"판매 가격"}
+                        onChangeText={this.changeText4}
+                        />
+                    <TextInput 
+                        style={styles.textForm} 
+                        placeholder={"훼손 상태"}
+                        onChangeText={this.changeText5}
+                        />
                 
                     <TextInput 
                         style={styles.textForm} 
-                        placeholder={"훼손 상태"}/>
-                
-                    <TextInput 
-                        style={styles.textForm} 
-                        placeholder={"연락처"}/>
-               
+                        placeholder={"연락처"}
+                        onChangeText={this.changeText6}
+                        />
                     <TextInput 
                         style={styles.textForm} 
                         placeholder={"사진 불러오기  or  카메라 촬영"}/>   
