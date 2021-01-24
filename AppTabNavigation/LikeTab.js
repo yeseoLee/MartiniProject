@@ -76,7 +76,8 @@ const DATA = [
      img: require('./Profile/images/c.png'),
      phone: '01090655436',
      publisher: '세종출판사',
-     bookCondition: '양호'
+     bookCondition: '양호',
+     category:'전공'
     },
     {key:  uuid(),
      title: '알고리즘',
@@ -85,7 +86,8 @@ const DATA = [
      img: require('./Profile/images/algo.png'),
      phone: '01046785984',
      publisher: '세종출판사',
-     bookCondition: '양호'
+     bookCondition: '양호',
+     category:'전공'
     },
     {key:  uuid(),
      title: '통계학개론',
@@ -94,7 +96,8 @@ const DATA = [
      img: require('./Profile/images/statistic.png'),
      phone: '01057499394',
      publisher: '세종출판사',
-     bookCondition: '양호'
+     bookCondition: '양호',
+     category:'전공'
     },
     {key:  uuid(),
      title: '해커스 토익 RC',
@@ -103,7 +106,8 @@ const DATA = [
      img: require('./Profile/images/toeic.png'),
      phone: '01041793445',
      publisher: '세종출판사',
-     bookCondition: '양호'
+     bookCondition: '양호',
+     category:'전공'
     },
     {key:  uuid(),
      title: '미분적분학',
@@ -112,7 +116,8 @@ const DATA = [
      img: require('./Profile/images/image2.png'),
      phone: '01066176371',
      publisher: '세종출판사',
-     bookCondition: '양호'
+     bookCondition: '양호',
+     category:'전공'
     },
 ];
 

@@ -1,18 +1,22 @@
 import React from 'react';
 import {createDrawerNavigator} from 'react-navigation-drawer';
-import {createAppContainer} from 'react-navigation';
+import {DrawerItems} from 'react-navigation-drawer';
 import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from './HomeTab';
 import MajorScreen from './Category/MajorScreen';
 import NonMajorScreen from './Category/NonMajorScreen';
 import EtcScreen from './Category/EtcScreen';
+import SideBar from './Category/SideBar';
+
 
 const AppHomeNavigator = createDrawerNavigator({
     Home:{screen:HomeScreen},
     Major:{screen:MajorScreen},
     NonMajor:{screen:NonMajorScreen},
     Etc:{screen:EtcScreen}
+},{
+    contentComponent: (props) => <SideBar {...props}/>
 });
 
 

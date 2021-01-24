@@ -11,7 +11,8 @@ const DATA = [
      img: require('../Like/bookImg.jpg'),
      phone: '01066285506',
      publisher: '세종출판사',
-     bookCondition: '양호'
+     bookCondition: '양호',
+     category:'전공'
     },
     {key:  uuid(),
      title: '실전 C프로그래밍',
@@ -20,7 +21,8 @@ const DATA = [
      img: require('../Profile/images/c.png'),
      phone: '01090655436',
      publisher: '세종출판사',
-     bookCondition: '양호'
+     bookCondition: '양호',
+     category:'전공'
     },
     {key:  uuid(),
      title: '알고리즘',
@@ -29,7 +31,8 @@ const DATA = [
      img: require('../Profile/images/algo.png'),
      phone: '01046785984',
      publisher: '세종출판사',
-     bookCondition: '양호'
+     bookCondition: '양호',
+     category:'전공'
     }
 ];
 
