@@ -67,7 +67,7 @@ export default class BookScreen extends React.Component{
                 <View>
                 <Book visible={this.state.modalVisible} closeModal = {this.closeModal.bind(this)} bookName={this.props.name} className={this.props.className} price={this.props.price}
                     publisher={this.props.publisher} bookCondition={this.props.bookCondition} img = {this.props.img}/>
-                    <TouchableOpacity  onPress={this.openModal.bind(this)}>
+                    <TouchableOpacity  onPress={this.openModal.bind(this)} disabled={this.state.ds}>
                     <Image style={styles.image}
                     source={this.props.img}/>
                     </TouchableOpacity>
