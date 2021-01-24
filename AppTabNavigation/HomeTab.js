@@ -77,6 +77,9 @@ const DATA = [
 export default class HomeTab extends React.Component{
     constructor() {
         super();
+        this.state = {
+            text: ''
+        }
     }
     
     static navigationOptions = {
@@ -100,6 +103,16 @@ export default class HomeTab extends React.Component{
         }
     };
 
+    getText = (textInput) => {
+        this.setState({
+            text:textInput
+        })
+        // Alert.alert('"' + this.state.text + '"책을 검색하였습니다.')
+    }
+    printText = () => {
+        Alert.alert('"' + this.state.text + '" 책을 검색하였습니다.')
+    }
+
     alertDelete = () => {
         Alert.alert("관심목록", "추가되었습니다")
     }
@@ -120,7 +133,7 @@ export default class HomeTab extends React.Component{
                     </Left>
                     <Item style={styles.search}>
                         <Ionicons name="search-outline" style={{marginLeft: 10}}></Ionicons>
-                        <Input style={{marginLeft: 3}} placeholder="검색"/>
+                        <Input style={{marginLeft: 3}} placeholder="검색" value = {this.state.text} onChangeText={this.getText.bind(this)} onSubmitEditing={this.printText.bind(this)}/>
                     </Item>
                 </Header>
                 <View style={styles.content}>
