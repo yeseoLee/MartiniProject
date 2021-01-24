@@ -48,6 +48,12 @@ export default class AddTab extends React.Component{
     alertSave = () => {
         Alert.alert(
             "글쓰기",
+            "도서명:"+this.inputText1+"\n"+
+            "출판사:"+this.inputText2+"\n"+
+            "수업 과목:"+this.inputText3+"\n"+
+            "판매 가격:"+this.inputText4+"\n"+
+            "훼손 상태:"+this.inputText5+"\n"+
+            "연락처:"+this.inputText6+"\n"+
             "판매글을 작성하시겠습니까?",
             [
                 {text: '아니오', onPress: () => null},
