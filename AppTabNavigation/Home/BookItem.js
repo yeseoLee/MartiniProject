@@ -69,12 +69,22 @@ export default class BookItem extends React.Component{
         return (
             <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:1}}>                
                 <TouchableOpacity style={styles.ItemStyle} onPress={this.openModal.bind(this)}>
-                    <Book visible={this.state.modalVisible} closeModal = {this.closeModal.bind(this)} bookName={this.props.name} className={this.props.className} price={this.props.price}
-                    publisher={this.props.publisher} bookCondition={this.props.bookCondition} img = {this.props.img}/>
+                    <Book visible={this.state.modalVisible}
+                    closeModal = {this.closeModal.bind(this)}
+
+                    bookName={this.props.name}
+                    className={this.props.className}
+                    price={this.props.price}
+                    publisher={this.props.publisher}
+                    bookCondition={this.props.bookCondition}
+                    img = {this.props.img}
+                    phone = {this.props.phone}
+                    category={this.props.category}/>
+
                     <Image style={styles.bookImage} source={this.props.img} />
                     <View style={styles.bookDescribe}>
-                        <Text style={styles.bookDescribe2}>{this.props.BookName}</Text>
-                        <Text style={styles.bookDescribe3}>🎓 {this.props.ClassName}</Text>
+                        <Text style={styles.bookDescribe2}>{this.props.name}</Text>
+                        <Text style={styles.bookDescribe3}>🎓 {this.props.className}</Text>
                         <Text style={styles.bookDescribe3}>💲 {this.props.price}</Text>
                     </View>
                     <View style={styles.button}>
