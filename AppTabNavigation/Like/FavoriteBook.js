@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, StyleSheet, View, TouchableOpacity, Image, Alert} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons,FontAwesome,Entypo,FontAwesome5,Octicons } from '@expo/vector-icons';
 import * as SMS from 'expo-sms';
 
 import Book from '../BookTab';
@@ -14,7 +14,6 @@ export default class FavoriteBook extends React.Component{
             modalVisible: false
         };
     }
-
 
     updateHeartColor = () => {
         if(this.state.heartColor === "#fa576d"){
@@ -64,27 +63,30 @@ export default class FavoriteBook extends React.Component{
                     <Image style={styles.bookImage} source={this.props.img} />
                     <View style={{ width:200,  flexDirection:'column'}}>
                         <Text style={styles.bookDescribeTitle}>{this.props.name}</Text>
-                        <Text style={ styles.bookDescribe}>🎓 {this.props.className}</Text>
-                        <Text style={ styles.bookDescribe}>💲 {this.props.price}</Text>
+                        <View style={styles.icontext}>
+                            <FontAwesome name = 'book'  paddingRight='10'/>
+                            <Text style={ styles.bookDescribe}>{this.props.className}</Text>
+                        </View>
+                        <View style={styles.icontext}>
+                            <FontAwesome name = 'won'  paddingRight='10'/> 
+                            <Text style={ styles.bookDescribe}>{this.props.price}</Text>
+                       </View>
                     </View>
                     <View style={styles.buttonStyle}>
                         <TouchableOpacity>
                             <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={this.getSMS.bind(this)}>    
-                            <Ionicons name = 'chatbubble-ellipses-outline' size = {30}/>
+                            <Ionicons name = 'chatbox-ellipses-outline' size = {30}/>
                         </TouchableOpacity>
                     </View>
             </TouchableOpacity>
         </View>
-
-        
         );
     }
 }
 
 const styles = StyleSheet.create({
-    
     ItemStyle:{
         borderBottomColor:'lightgrey',
         borderBottomWidth:0.5,
@@ -104,11 +106,16 @@ const styles = StyleSheet.create({
         marginBottom:10
     },
     bookDescribe:{
+        marginLeft:10,
         fontSize: 15,
         marginBottom:3
     },
     buttonStyle:{
+        paddingRight:5,
         alignItems:'flex-end',
         flex:0.9,
+    },
+    icontext:{
+        flexDirection:'row',
     }
 });

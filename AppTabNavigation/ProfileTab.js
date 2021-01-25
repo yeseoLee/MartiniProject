@@ -1,12 +1,7 @@
 import * as React from 'react';
 import {View, Text, StyleSheet,Image,ScrollView,Alert,TouchableOpacity,Switch,FlatList} from 'react-native';
-import{Header,Body,Container}from 'native-base'
 import { Ionicons } from '@expo/vector-icons';
 import {createStackNavigator} from 'react-navigation-stack';
-import {createAppContainer, ThemeColors} from 'react-navigation';
-import * as MailComposer from 'expo-mail-composer';
-import uuid from 'react-uuid'
-
 
 import NotiScreen from './Profile/Noti';
 import MypageScreen from './Profile/Mypage';
@@ -19,11 +14,13 @@ const AppNavigator=createStackNavigator({
 
 
 export default class ProfileTab extends React.Component{
+  
   static navigationOptions = {
     tabBarIcon: ({tintColor}) => (
         <Ionicons name = 'person' size = {26} style = {{color:tintColor}}/>
     )
   }
+
   static router=AppNavigator.router;
     render() {
       return (

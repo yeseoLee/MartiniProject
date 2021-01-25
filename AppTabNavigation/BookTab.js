@@ -189,6 +189,7 @@ const styles = StyleSheet.create({
         fontSize:15
     },
     Message:{
+        
         backgroundColor: '#303D74',
         alignItems:'center',
         justifyContent: 'center',

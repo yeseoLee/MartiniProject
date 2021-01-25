@@ -6,7 +6,6 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer, ThemeColors} from 'react-navigation';
 import * as MailComposer from 'expo-mail-composer';
 import uuid from 'react-uuid'
-
 import BookScreen from'./book';
 import UserScreen from './user';
 
@@ -41,11 +40,13 @@ const DATA=[
   ]
 
  export default class MypageScreen extends React.Component{
+
     static navigationOptions = {
       tabBarIcon: ({tintColor}) => (
           <Ionicons name = 'person' size = {26} style = {{color:tintColor}}/>
       )
     }
+
     getemail = async() => {
       try{
         await MailComposer.isAvailableAsync();
@@ -57,34 +58,33 @@ const DATA=[
       }catch(error){
         Alert.alert("mail 기능 사용 불가", "ㅠ-ㅠ");
       }
-  };
+    };
+
     render() {
       return (
         <Container>
-        <View style={styles.container}>
+          <View style={styles.container}>
             <UserScreen/>
               <View style={{flex:1}}> 
                 <FlatList data = {DATA}
-                           renderItem={({item}) => <BookScreen name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone} publisher={item.publisher}
-                           bookCondition = {item.bookCondition}/>} 
-                           ListHeaderComponent={<Text></Text>}
-                           ListFooterComponent={<Text></Text>}/>
+                          renderItem={({item}) => <BookScreen name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone} publisher={item.publisher}
+                          bookCondition = {item.bookCondition}/>} 
+                          ListHeaderComponent={<Text></Text>}
+                          ListFooterComponent={<Text></Text>}/>
               </View>
-            
-            <View style={{height: 50, flexDirection: 'row', alignItems: 'center',margin:15}}>
-              <View style={{flex: 1, height: 50, flexDirection: 'column', borderWidth: 0.5, borderLeftWidth: 0, borderRightWidth: 0, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
-               <TouchableOpacity>
-                <Ionicons name = 'log-out-outline' size = {26} />
-              </TouchableOpacity>
-              <Text>로그아웃</Text>
+              <View style={{height: 50, flexDirection: 'row', alignItems: 'center',margin:15}}>
+                <View style={{flex: 1, height: 50, flexDirection: 'column', borderWidth: 0.5, borderLeftWidth: 0, borderRightWidth: 0, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
+                  <TouchableOpacity>
+                    <Ionicons name = 'log-out-outline' size = {26} />
+                  </TouchableOpacity>
+                  <Text>로그아웃</Text>
+                </View>
+                <View style={{flex: 1, height: 50, flexDirection: 'column', borderWidth: 0.5, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
+                 <TouchableOpacity>
+                  <Ionicons name = 'alert-outline' size = {26} onPress={() => this.props.navigation.navigate('이용안내')}/>
+                 </TouchableOpacity>
+                 <Text>이용안내</Text>
               </View>
-              <View style={{flex: 1, height: 50, flexDirection: 'column', borderWidth: 0.5, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
-               <TouchableOpacity>
-                <Ionicons name = 'alert-outline' size = {26} onPress={() => this.props.navigation.navigate('이용안내')}/>
-               </TouchableOpacity>
-               <Text>이용안내</Text>
-              </View>
-  
               <View style={{flex: 1, height: 50, flexDirection: 'column', borderWidth: 0.5, borderLeftWidth: 0, borderRightWidth: 0, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
                 <TouchableOpacity>
                   <Ionicons name = 'help-outline' size = {26} onPress={this.getemail} />
@@ -92,7 +92,7 @@ const DATA=[
                 <Text>Q&A</Text>
               </View>
             </View>
-        </View>
+          </View>
         </Container>
       );
     }

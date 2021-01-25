@@ -1,14 +1,9 @@
 import * as React from 'react';
 import {View, Text, StyleSheet,Image,ScrollView,Alert,TouchableOpacity,Switch} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Segment, Content} from 'native-base'
-import { Ionicons } from '@expo/vector-icons';
-import {createStackNavigator} from 'react-navigation-stack';
-import {createAppContainer, ThemeColors} from 'react-navigation';
-import * as MailComposer from 'expo-mail-composer';
-import uuid from 'react-uuid'
+import { Ionicons,FontAwesome } from '@expo/vector-icons';
 
 import Book from '../BookTab';
-import { on } from 'events';
 
 
 export default class BookScreen extends React.Component{
@@ -24,11 +19,13 @@ export default class BookScreen extends React.Component{
             ds:false,
         };
     }
+
     openModal=()=>{
         this.setState({
             modalVisible:true
         })
     }
+
     yalert=()=>{
         if(this.state.seg==1){
             this.setState({
@@ -39,7 +36,6 @@ export default class BookScreen extends React.Component{
                 ds:true,
             })
         }
-     
     }
     
     alertSave=()=>{
@@ -55,49 +51,48 @@ export default class BookScreen extends React.Component{
         )
         
     }
+
     closeModal=()=>{
         this.setState({
             modalVisible:false
         })
     }
+
     render(){
         return(
-            <View style={{margin:1,flexDirection:'row',borderWidth:0.5,
-            borderColor:'black',backgroundColor:this.state.backgroundColor,opacity:this.state.opacity} }>
+            <View style={{flexDirection:'row',borderBottomWidth:0.7, borderColor:'lightgray',backgroundColor:this.state.backgroundColor,opacity:this.state.opacity} }>
                 <View>
-                <Book visible={this.state.modalVisible} closeModal = {this.closeModal.bind(this)} bookName={this.props.name} className={this.props.className} price={this.props.price}
+                    <Book visible={this.state.modalVisible} closeModal = {this.closeModal.bind(this)} bookName={this.props.name} className={this.props.className} price={this.props.price}
                     publisher={this.props.publisher} bookCondition={this.props.bookCondition} img = {this.props.img}/>
                     <TouchableOpacity  onPress={this.openModal.bind(this)} disabled={this.state.ds}>
-                    <Image style={styles.image}
-                    source={this.props.img}/>
+                        <Image style={styles.image} source={this.props.img}/>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.bookcontent}>
                     <View style={styles.textcontent}>
                         <Text style={styles.bookDescribeTitle}>{this.props.name}</Text>
-                        <Text style={ styles.bookDescribe}>🎓 {this.props.className}</Text>
-                        <Text style={ styles.bookDescribe}>💲 {this.props.price}</Text>
+                        <View style={styles.icontext}>
+                            <FontAwesome name = 'book' paddingRight='10'/>
+                            <Text style={ styles.bookDescribe}>{this.props.className}</Text>
+                        </View>
+                        <View style={styles.icontext}>
+                            <FontAwesome name = 'won'  paddingRight='10'/> 
+                            <Text style={ styles.bookDescribe}>{this.props.price}</Text>
+                       </View>
                     </View>
                     <View style={styles.buttoncontent}>
                         <Segment style={{backgroundColor:this.state.btbc}} >
-                            <Button style={{
-									backgroundColor: this.state.seg === 1 ? "#303D74" : 'white',
-									borderColor: "#303D74",
-                                }}
-                                disabled={this.state.ds}
-								first
-								active={this.state.seg === 1 ? true : false}
-								>
-                            <Text style={{ color: this.state.seg === 1 ? "white" : "#303D74" }}>  판매중  </Text>
+                            <Button style={{backgroundColor: this.state.seg === 1 ? "#303D74" : 'white', borderColor: "#303D74"}}
+                                    disabled={this.state.ds}
+								    first
+								    active={this.state.seg === 1 ? true : false}>
+                                <Text style={{ color: this.state.seg === 1 ? "white" : "#303D74" }}>  판매중  </Text>
                             </Button>
                             <Button last
-								style={{
-									backgroundColor: this.state.seg === 2 ? "#303D74" : 'white',
-									borderColor: "#303D74",
-                                }}
-                                disabled={this.state.ds}
-								active={this.state.seg === 2 ? true : false}
-								onPress={this.alertSave}>
+								    style={{backgroundColor: this.state.seg === 2 ? "#303D74" : 'white',borderColor: "#303D74"}}
+                                    disabled={this.state.ds}
+								    active={this.state.seg === 2 ? true : false}
+								    onPress={this.alertSave}>
                                 <Text style={{ color: this.state.seg === 1 ? "#303D74" : "white" }}>  판매완료  </Text>
                             </Button>
                         </Segment> 
@@ -107,6 +102,7 @@ export default class BookScreen extends React.Component{
         )
     }
 }
+
 const styles=StyleSheet.create({
     image:{
         borderWidth:0.5,
@@ -114,29 +110,33 @@ const styles=StyleSheet.create({
         margin:15,
         width:100,
         height:150,
-      },
-      bookcontent:{
+    },
+    icontext:{
+        flexDirection:'row',
+    },
+    bookcontent:{
         margin:15,
         flexDirection:'column',
-      },
-      textcontent:{
+    },
+    textcontent:{
           flex:1,
-      },
-      buttoncontent:{
+    },
+    buttoncontent:{
           flexDirection:'row',
           flex:1,
-      },
-      whatbook:{
+    },
+    whatbook:{
         margin:1,
         flexDirection:'row',
         borderWidth:0.5,
         borderColor:'black',
-      },
-      bookDescribeTitle:{
+    },
+    bookDescribeTitle:{
         fontSize: 20,
         marginBottom:20
     },
-      bookDescribe:{
+    bookDescribe:{
+        marginLeft:10, 
         fontSize: 15,
         marginBottom:3,
     },

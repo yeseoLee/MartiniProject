@@ -1,7 +1,6 @@
 import 'react-native-gesture-handler';
 import MainScreen from './Components/MainScreen';
 
-
 export default MainScreen;
 /*
 import React from 'react-native';

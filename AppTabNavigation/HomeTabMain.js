@@ -1,6 +1,5 @@
 import React from 'react';
 import {createDrawerNavigator} from 'react-navigation-drawer';
-import {DrawerItems} from 'react-navigation-drawer';
 import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from './HomeTab';

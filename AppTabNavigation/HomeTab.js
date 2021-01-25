@@ -1,15 +1,11 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, StatusBar, Alert,FlatList} from 'react-native';
-import {Container, Header, Title, Content, Footer, FooterTab, 
-        Button, Left, Right, Body, Icon, Item, Input} from 'native-base';
+import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Item, Input} from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 import * as SMS from 'expo-sms';
 import uuid from 'react-uuid';
 
 import BookItem from './Home/BookItem';
-
-const brandPrimary = 'white';
-
 
 const DATA = [    
     {key: uuid(),      //각 값마다 고유 key값 부여
@@ -117,7 +113,6 @@ export default class HomeTab extends React.Component{
         Alert.alert("관심목록", "추가되었습니다")
     }
 
-   
     render() {
         return (
             <StatusBar backgroundColor='black'/>,
@@ -126,9 +121,7 @@ export default class HomeTab extends React.Component{
                     <Left>
                         {/* <Button transparent onPress={this.navigateToSub}> */}
                         <Button transparent onPress={this.navigateToSub}>
-                            <Ionicons name = "reorder-four-outline" 
-                                size = {30}
-                                style = {{color:"#303D74"}}/>
+                            <Ionicons name = "reorder-four-outline" size = {30} style = {{color:"#303D74"}}/>
                         </Button>
                     </Left>
                     <Item style={styles.search}>
@@ -138,14 +131,14 @@ export default class HomeTab extends React.Component{
                 </Header>
                 <View style={styles.content}>
                     <FlatList data = {DATA} renderItem={({item}) =>
-                    <BookItem name={item.title}
-                    className={item.className}
-                    price={item.price}
-                    img={item.img}
-                    phone={item.phone}
-                    publisher={item.publisher}
-                    bookCondition = {item.bookCondition}
-                    category={item.category}/>} />
+                        <BookItem name={item.title}
+                                  className={item.className}
+                                  price={item.price}
+                                  img={item.img}
+                                  phone={item.phone}
+                                  publisher={item.publisher}
+                                  bookCondition = {item.bookCondition}
+                                  category={item.category}/>} />
                 </View>
             </Container>
         );

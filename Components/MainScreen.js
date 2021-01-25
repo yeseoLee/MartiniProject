@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, View, Text, Button, Platform, StatusBar} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import { Card } from 'react-native-paper';
@@ -38,22 +37,10 @@ const AppTabNavigator = createBottomTabNavigator({
         showIcon: true,
     }
 });
+
 const AppTabContainer = createAppContainer(AppTabNavigator);
 
 export default class MainScreen extends React.Component{
-
-
-    //상단 네비게이션
-    /*static navigationOptions =  {
-        headerLeft: () => (
-             <Ionicons name = "reorder-four-outline" 
-                            size = {30}
-                            style = {{color:"#303D74"}, {marginLeft: 10}}/>
-            ),
-
-          
-        title:'Library DataScience'
-    }*/
 
     state = {
         appHasLoaded: true

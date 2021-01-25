@@ -1,16 +1,11 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, Alert,TouchableOpacity,Image} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons,FontAwesome } from '@expo/vector-icons';
 import * as SMS from 'expo-sms';
-import uuid from 'react-uuid';
-
 import Book from '../BookTab'
-
-const brandPrimary = 'white'
 
 export default class BookItem extends React.Component{
     
-
     constructor() {
         super();
         this.state = {
@@ -64,14 +59,12 @@ export default class BookItem extends React.Component{
     }
 
 
-
     render() {
         return (
             <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:1}}>                
                 <TouchableOpacity style={styles.ItemStyle} onPress={this.openModal.bind(this)}>
                     <Book visible={this.state.modalVisible}
                     closeModal = {this.closeModal.bind(this)}
-
                     bookName={this.props.name}
                     className={this.props.className}
                     price={this.props.price}
@@ -84,8 +77,14 @@ export default class BookItem extends React.Component{
                     <Image style={styles.bookImage} source={this.props.img} />
                     <View style={styles.bookDescribe}>
                         <Text style={styles.bookDescribe2}>{this.props.name}</Text>
-                        <Text style={styles.bookDescribe3}>🎓 {this.props.className}</Text>
-                        <Text style={styles.bookDescribe3}>💲 {this.props.price}</Text>
+                        <View style={styles.icontext}>
+                            <FontAwesome name = 'book' paddingRight='10'/>
+                            <Text style={styles.bookDescribe3}>{this.props.className}</Text>
+                        </View>
+                        <View style={styles.icontext}>
+                            <FontAwesome  name = 'won' paddingRight='10'/> 
+                            <Text style={styles.bookDescribe3}>{this.props.price}</Text>
+                        </View>
                     </View>
                     <View style={styles.button}>
                         <TouchableOpacity>
@@ -115,16 +114,14 @@ const styles = StyleSheet.create({
         paddingRight:10,
         paddingBottom:30,
         //backgroundColor: '#d6ca1a',
-      },
-      ItemStyle:{
+    },
+    ItemStyle:{
         // borderBottomColor:'lightgrey',
         // borderBottomWidth:1,
         alignItems: 'center',
         justifyContent:'flex-start',
         flexDirection: 'row',
         paddingLeft: 10,
-
-
     },    
     bookImage:{
         width: 90,
@@ -132,7 +129,7 @@ const styles = StyleSheet.create({
         height:120,
     },
     bookDescribe:{
-        paddingLeft:30,
+        paddingLeft:20,
         flexDirection:'column',
         fontSize: 20
     },
@@ -141,11 +138,15 @@ const styles = StyleSheet.create({
         marginBottom:10
     },
     bookDescribe3:{
+        marginLeft:10,
         fontSize: 15,
         marginBottom:3
     },
     button:{
         flex:0.9,
         alignItems:'flex-end',
+    },
+    icontext:{
+        flexDirection:'row',
     }
 });

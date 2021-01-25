@@ -1,12 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
-import {Container, Header, Title, Content, Footer, FooterTab, 
-    Button, Left, Item, Input, Body} from 'native-base'
+import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Item, Input, Body} from 'native-base'
 import { Ionicons } from '@expo/vector-icons';
 import uuid from 'react-uuid';
 
 import FavoriteBook from './Like/FavoriteBook';
-import { color } from 'react-native-reanimated';
 
 const DATA = [    
     {key: uuid(),      //각 값마다 고유 key값 부여
@@ -122,8 +120,7 @@ const DATA = [
 ];
 
 export default class LikeTab extends React.Component{
-    
-    
+
     static navigationOptions = {
         tabBarIcon: ({tintColor}) => (
             <Ionicons name = 'heart-outline' size = {26} style = {{color:tintColor}}/>
@@ -134,15 +131,15 @@ export default class LikeTab extends React.Component{
         return (
             <View style = {styles.container}>
                 <Header style={styles.header}>
-                <Left>
-                    <Text style={styles.headertext}>  관심 목록 </Text>
-                </Left>
-                <Body></Body>
+                    <Left>
+                        <Text style={styles.headertext}>  관심 목록 </Text>
+                    </Left>
+                    <Body></Body>
                 </Header>
                 <View style={styles.bodyContainer}>
                     <FlatList data = {DATA}
-                         renderItem={({item}) => <FavoriteBook name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone} publisher={item.publisher}
-                         bookCondition = {item.bookCondition} category={item.category}/>} />
+                              renderItem={({item}) => <FavoriteBook name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone} publisher={item.publisher}
+                              bookCondition = {item.bookCondition} category={item.category}/>} />
                 </View>
             </View>
 
@@ -151,11 +148,6 @@ export default class LikeTab extends React.Component{
 }
 
 const styles = StyleSheet.create({
-    container:{
-
-
-    },
-
     headerTextStyle:{
         fontSize: 20,
         fontWeight: '100',
