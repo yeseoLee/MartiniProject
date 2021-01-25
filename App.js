@@ -1,5 +1,9 @@
 import 'react-native-gesture-handler';
+import {LogBox} from 'react-native';
 import MainScreen from './Components/MainScreen';
+
+//LogBox.ignoreAllLogs();
+//경고창 안 뜨게 하는 명령어 (화면 녹화할 때 사용할 거임)
 
 export default MainScreen;
 /*
