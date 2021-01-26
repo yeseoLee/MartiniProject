@@ -13,6 +13,9 @@ const AppNavigator=createStackNavigator({
 },{
   defaultNavigationOptions:{
     headerTintColor:'#303D74',
+    headerTitleStyle:{
+      fontWeight:'normal',
+    }
   }
 });
 
