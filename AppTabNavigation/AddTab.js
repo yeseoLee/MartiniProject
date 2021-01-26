@@ -65,9 +65,12 @@ export default class AddTab extends React.Component{
         console.log(this.inputText1,
             this.inputText2,this.inputText3,this.inputText4,this.inputText5,this.inputText6,)
     }
-
-    //카메라 & 갤러리 react-native permission 추가해야 함
-
+    
+    alertImage = () => {
+        Alert.alert(
+            "이미지불러오기"
+        )
+    }
    
     render(){
         return (
@@ -125,6 +128,7 @@ export default class AddTab extends React.Component{
                         placeholder={"판매 가격"}
                         onChangeText={this.changeText4}
                         />
+
                     <TextInput 
                         style={styles.textForm} 
                         placeholder={"훼손 상태"}
@@ -136,14 +140,16 @@ export default class AddTab extends React.Component{
                         placeholder={"연락처"}
                         onChangeText={this.changeText6}
                         />
-                    <TextInput 
-                        style={styles.textForm} 
-                        placeholder={"사진 불러오기  or  카메라 촬영"}/>   
+                </View>
+                <View style={styles.Image}>
+
+                    <Button title="이미지" onPress={this.alertImage} color='#888'/>
+
                 </View>
 
                 <View style={styles.buttonclick}>
                     
-                        <Button title="  등록  " onPress={this.alertSave} color='#303D74' size='100'/>
+                    <Button title="  등록  " onPress={this.alertSave} color='#303D74' size='100'/>
                     
                 </View>
             </View>
@@ -156,14 +162,14 @@ export default class AddTab extends React.Component{
 const styles = StyleSheet.create({
     container: {
         marginTop:20,
-       paddingTop:10,
-       marginBottom:70,
+        paddingTop:10,
+        marginBottom:70,
         justifyContent: 'center',
         alignItems: 'center',
     },
     formArea: {
         width: '70%',
-        marginBottom:30
+        marginBottom:12
     },
     textForm: {
         borderWidth: 0.5,
@@ -180,11 +186,14 @@ const styles = StyleSheet.create({
     header:{
         backgroundColor:'white',
     },
-    
     headertext:{
         marginLeft:5,
         color:'#303D74',
         fontSize:20,
         alignItems:'flex-start'
+    },
+    Image:{
+        width: '70%',
+        marginBottom: 30,
     }
 })

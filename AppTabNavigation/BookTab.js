@@ -91,6 +91,7 @@ export default class BookTab extends React.Component{
                 <View style={styles.BottomContainer}>
                     <View>
                         <Text style={styles.Seller}>훼손 상태 및 부가 설명</Text>
+                        <Text style={styles.time}>마지막 수정  2021.01.26 14:00</Text>
                         <View style={styles.detail}>
                             <Text style={styles.bookDescribeButtom}>훼손상태: {this.props.bookCondition}</Text>
                         </View>
@@ -118,6 +119,11 @@ const styles = StyleSheet.create({
         paddingLeft:30,
         fontSize:18,
         fontWeight: 'bold',
+    },
+    time:{
+        paddingLeft: 30,
+        marginTop: 5,
+        color: '#888',
     },
     Imgborder:{
         borderWidth:3,
