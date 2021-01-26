@@ -10,6 +10,10 @@ import MypageScreen from './Profile/Mypage';
 const AppNavigator=createStackNavigator({
   Mypage: {screen:MypageScreen},
   이용안내:{screen:NotiScreen},
+},{
+  defaultNavigationOptions:{
+    headerTintColor:'#303D74',
+  }
 });
 
 
@@ -18,7 +22,7 @@ export default class ProfileTab extends React.Component{
   static navigationOptions = {
     tabBarIcon: ({tintColor}) => (
         <Ionicons name = 'person' size = {26} style = {{color:tintColor}}/>
-    )
+    ),
   }
 
   static router=AppNavigator.router;
