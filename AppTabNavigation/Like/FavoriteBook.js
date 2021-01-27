@@ -42,13 +42,11 @@ export default class FavoriteBook extends React.Component{
     }
 
     openModal = () => {
-        // Alert.alert("판매페이지로 넘어갑니다")
         this.setState({ 
             modalVisible:true
         })
     }
     closeModal = () => {
-        // Alert.alert("판매페이지로 넘어갑니다")
         this.setState({ 
             modalVisible:false
         })
@@ -92,7 +90,6 @@ const styles = StyleSheet.create({
         borderBottomWidth:0.5,
         alignItems: 'center',
         flexDirection: 'row',
-        margin:0,
         paddingLeft: 10,
     },    
     bookImage:{

@@ -14,7 +14,7 @@ import Loading from '../Components/Loading';
 const AppTabNavigator = createBottomTabNavigator({
     Home: {screen:HomeTab},
     Add: {screen:AddTab}, 
-    Like: {screen:LikeTab},  //이렇게 하면 에러 해결이라하는데, 차이를 모르겠다. 해결이 안된다
+    Like: {screen:LikeTab},  
     Profile: {screen:ProfileTab}, 
 }, {
     swipeEnabled: true,

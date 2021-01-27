@@ -54,12 +54,8 @@ export default class AddTab extends React.Component{
             "판매 가격:"+this.inputText4+"\n"+
             "훼손 상태:"+this.inputText5+"\n"+
             "연락처:"+this.inputText6+"\n"+
-            "판매글을 작성하시겠습니까?",
-            [
-                {text: '아니오', onPress: () => null},
-                {text: '예', onPress: this.props.navigation.goBack()}, // 21.01.15 아니오 누르면 에러 안 뜸 / 예 누르면 에러 뜸 
-            ],
-            { cancelable: true }
+            "\n"+
+            "판매 정보를 확인해주세요."
         )
 
         console.log(this.inputText1,

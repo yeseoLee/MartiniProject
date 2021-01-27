@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, Alert,TouchableOpacity,Image} from 'react-native';
 import { Ionicons,FontAwesome } from '@expo/vector-icons';
 import * as SMS from 'expo-sms';
+
 import Book from '../BookTab'
 
 export default class BookItem extends React.Component{
@@ -46,13 +47,11 @@ export default class BookItem extends React.Component{
     }
 
     openModal = () => {
-        // Alert.alert("판매페이지로 넘어갑니다")
         this.setState({ 
             modalVisible:true
         })
     }
     closeModal = () => {
-        // Alert.alert("판매페이지로 넘어갑니다")
         this.setState({ 
             modalVisible:false
         })
@@ -113,11 +112,8 @@ const styles = StyleSheet.create({
         paddingLeft:10,
         paddingRight:10,
         paddingBottom:30,
-        //backgroundColor: '#d6ca1a',
     },
     ItemStyle:{
-        // borderBottomColor:'lightgrey',
-        // borderBottomWidth:1,
         alignItems: 'center',
         justifyContent:'flex-start',
         flexDirection: 'row',
@@ -143,6 +139,7 @@ const styles = StyleSheet.create({
         marginBottom:3
     },
     button:{
+        paddingRight:5,
         flex:0.9,
         alignItems:'flex-end',
     },

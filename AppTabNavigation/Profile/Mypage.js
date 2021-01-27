@@ -2,8 +2,6 @@ import * as React from 'react';
 import {View, Text, StyleSheet,Image,ScrollView,Alert,TouchableOpacity,Switch,FlatList} from 'react-native';
 import{Header,Body,Container}from 'native-base'
 import { Ionicons } from '@expo/vector-icons';
-import {createStackNavigator} from 'react-navigation-stack';
-import {createAppContainer, ThemeColors} from 'react-navigation';
 import * as MailComposer from 'expo-mail-composer';
 import uuid from 'react-uuid'
 import BookScreen from'./book';
@@ -40,7 +38,7 @@ const DATA=[
   ]
 
  export default class MypageScreen extends React.Component{
-
+   
     static navigationOptions = {
       tabBarIcon: ({tintColor}) => (
           <Ionicons name = 'person' size = {26} style = {{color:tintColor}}/>
