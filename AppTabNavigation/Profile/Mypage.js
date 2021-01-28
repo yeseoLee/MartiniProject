@@ -72,22 +72,20 @@ const DATA=[
               </View>
               <View style={styles.bottombar}>
                 <View style={styles.bottomitem}>
-                  <TouchableOpacity>
                     <Ionicons name = 'log-out-outline' size = {23} sytle={{alignItems: 'center'}}/>
                     <Text style={{fontSize: 13}, {alignItems: 'center'}}>로그아웃</Text>
-                  </TouchableOpacity>
                 </View>
                 <View style={styles.bottomitem} >
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('이용안내')}>
-                    <Ionicons name = 'information-circle-outline' size = {23} sytle={styles.icon}/>
-                    <Text style={{fontSize: 13}, {alignItems: 'center'}}>이용안내</Text>
-                  </TouchableOpacity>
+                    <Ionicons name = 'information-circle-outline' size = {23} sytle={{alignItems: 'center'}}
+                      onPress={() => this.props.navigation.navigate('이용안내')}/>
+                    <Text style={{fontSize: 13}, {alignItems: 'center'}}
+                      onPress={() => this.props.navigation.navigate('이용안내')}>이용안내</Text>
                 </View>
                 <View style={styles.bottomitem}>
-                  <TouchableOpacity>
-                    <Ionicons name = 'help-outline'  size = {23} sytle={styles.icon}/>
-                    <Text style={{fontSize: 13}, {alignItems: 'center'}}>Q&A</Text>
-                  </TouchableOpacity>
+                    <Ionicons name = 'help-outline'  size = {23} sytle={{alignItems: 'center'}}
+                      onPress={this.getemail}/>
+                    <Text style={{fontSize: 13}, {alignItems: 'center'}}
+                      onPress={this.getemail}>Q&A</Text>
                 </View>
               </View>
           </View>
@@ -116,7 +114,7 @@ const DATA=[
       height: 40, 
       flexDirection: 'column', 
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
     },
     icon:{
       alignItems: 'center',
