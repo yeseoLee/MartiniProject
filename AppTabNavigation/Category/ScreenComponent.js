@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, StyleSheet, StatusBar, Alert,FlatList} from 'react-native';
+import {View, StyleSheet, StatusBar, Alert, FlatList} from 'react-native';
 import {Container, Header, Button, Left, Body, Right} from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 import * as SMS from 'expo-sms';
+
 import BookItem from '../Home/BookItem';
 
 export default class ScreenComponent extends React.Component{
@@ -40,15 +41,15 @@ export default class ScreenComponent extends React.Component{
                     <Right/>
                 </Header>
                 <View style={styles.content}>
-                <FlatList data = {this.props.DATA} renderItem={({item}) =>
-                        <BookItem name={item.title}
-                                  className={item.className}
-                                  price={item.price}
-                                  img={item.img}
-                                  phone={item.phone}
-                                  publisher={item.publisher}
-                                  bookCondition = {item.bookCondition}
-                                  category={item.category}/>} />
+                    <FlatList data = {this.props.DATA} renderItem={({item}) =>
+                            <BookItem name={item.title}
+                                    className={item.className}
+                                    price={item.price}
+                                    img={item.img}
+                                    phone={item.phone}
+                                    publisher={item.publisher}
+                                    bookCondition = {item.bookCondition}
+                                    category={item.category}/>} />
                 </View>
             </Container>           
         )
@@ -57,7 +58,7 @@ export default class ScreenComponent extends React.Component{
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
+        flex: 1,
         alignItems:'center',
         justifyContent: 'center',
     },

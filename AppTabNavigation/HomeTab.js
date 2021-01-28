@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {View, Text, StyleSheet, StatusBar, Alert,FlatList} from 'react-native';
-import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Item, Input} from 'native-base';
+import React from 'react';
+import {View, StyleSheet, StatusBar, Alert,FlatList} from 'react-native';
+import {Container, Header, Button, Left, Item, Input} from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 import * as SMS from 'expo-sms';
 import uuid from 'react-uuid';

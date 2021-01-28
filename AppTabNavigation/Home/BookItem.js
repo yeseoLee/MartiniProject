@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, Alert,TouchableOpacity,Image} from 'react-native';
 import { Ionicons,FontAwesome } from '@expo/vector-icons';
 import * as SMS from 'expo-sms';

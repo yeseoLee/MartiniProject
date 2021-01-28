@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {View, Text, StyleSheet,Image,ScrollView,Alert,TouchableOpacity,Switch} from 'react-native';
-import { Container, Header, Left, Body, Right, Button, Icon, Title, Segment, Content} from 'native-base'
-import { Ionicons,FontAwesome } from '@expo/vector-icons';
+import {View, Text, StyleSheet,Image,Alert,TouchableOpacity} from 'react-native';
+import {Button, Segment} from 'native-base'
+import {FontAwesome} from '@expo/vector-icons';
 
 import Book from '../BookTab';
 
@@ -14,7 +14,7 @@ export default class BookScreen extends React.Component{
             modalVisible: false,
             seg:1,
             backgroundColor:'white',
-            btbc:'white',
+            btbc:'transparent',
             opacity:1,
             ds:false,
         };
@@ -31,7 +31,7 @@ export default class BookScreen extends React.Component{
             this.setState({
                 seg:2,
                 backgroundColor:'#b3b3b3',
-                btbc:'#b3b3b3',
+                btbc:'transparent',
                 opacity:0.5,
                 ds:true,
             })
@@ -73,11 +73,11 @@ export default class BookScreen extends React.Component{
                         <Text style={styles.bookDescribeTitle}>{this.props.name}</Text>
                         <View style={styles.icontext}>
                             <FontAwesome name = 'book' paddingRight='10'/>
-                            <Text style={ styles.bookDescribe}>{this.props.className}</Text>
+                            <Text style={styles.bookDescribe}>{this.props.className}</Text>
                         </View>
                         <View style={styles.icontext}>
                             <FontAwesome name = 'won'  paddingRight='10'/> 
-                            <Text style={ styles.bookDescribe}>{this.props.price}</Text>
+                            <Text style={styles.bookDescribe}>{this.props.price}</Text>
                        </View>
                     </View>
                     <View style={styles.buttoncontent}>
@@ -119,11 +119,11 @@ const styles=StyleSheet.create({
         flexDirection:'column',
     },
     textcontent:{
-          flex:1,
+        flex:1,
     },
     buttoncontent:{
-          flexDirection:'row',
-          flex:1,
+        flexDirection:'row',
+        flex:1,
     },
     whatbook:{
         margin:1,

@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
-import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Item, Input, Body} from 'native-base'
+import {Header, Left, Body} from 'native-base'
 import { Ionicons } from '@expo/vector-icons';
 import uuid from 'react-uuid';
 
@@ -132,7 +132,7 @@ export default class LikeTab extends React.Component{
             <View style = {styles.container}>
                 <Header style={styles.header}>
                     <Left>
-                        <Text style={styles.headertext}>  관심 목록 </Text>
+                        <Text style={styles.headertext}>관심목록 </Text>
                     </Left>
                     <Body></Body>
                 </Header>

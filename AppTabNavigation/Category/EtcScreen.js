@@ -4,7 +4,6 @@ import uuid from 'react-uuid';
 import ScreenComponent from "./ScreenComponent";
 
 const DATA = [    
-    
     {key:  uuid(),
      title: '해커스 토익 RC',
      className:'토익',

@@ -1,20 +1,19 @@
 import * as React from 'react';
-import {View, Text, StyleSheet,Image,ScrollView,Alert,TouchableOpacity,Switch,FlatList} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import {createStackNavigator} from 'react-navigation-stack';
-
 import NotiScreen from './Profile/Noti';
 import MypageScreen from './Profile/Mypage';
 
 
 const AppNavigator=createStackNavigator({
-  Mypage: {screen:MypageScreen},
+  마이페이지: {screen:MypageScreen},
   이용안내:{screen:NotiScreen},
 },{
   defaultNavigationOptions:{
     headerTintColor:'#303D74',
     headerTitleStyle:{
       fontWeight:'normal',
+      justifyContent: 'flex-start'
     }
   }
 });
@@ -24,7 +23,7 @@ export default class ProfileTab extends React.Component{
   
   static navigationOptions = {
     tabBarIcon: ({tintColor}) => (
-        <Ionicons name = 'person' size = {26} style = {{color:tintColor}}/>
+      <Ionicons name = 'person' size = {26} style = {{color:tintColor}}/>
     ),
   }
 
@@ -32,13 +31,6 @@ export default class ProfileTab extends React.Component{
     render() {
       return (
         <AppNavigator navigation={this.props.navigation}/>
-        )
+      )
     }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 5,
-  },
-})

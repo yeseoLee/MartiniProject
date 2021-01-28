@@ -1,39 +1,39 @@
 import * as React from 'react';
-import {View, Text, StyleSheet,Image,ScrollView,Alert,TouchableOpacity,Switch,FlatList} from 'react-native';
-import{Header,Body,Container}from 'native-base'
-import { Ionicons } from '@expo/vector-icons';
-import {createStackNavigator} from 'react-navigation-stack';
-import {createAppContainer, ThemeColors} from 'react-navigation';
+import {View, Text, StyleSheet,Image} from 'react-native';
 
 export default class UserScreen extends React.Component{
     render(){
         return(
-            <View style={styles.user}>
-          <View style={{height: 150, flexDirection: 'row', alignItems: 'center'}}>
-            <View style={{width: 100}}>
-              <View style={{width: 100, height: 100}} >
-                <Image source={require('./images/sadfrog.png')} style={{width: 100, height: 100}}/>
+            <View>
+              <View style={styles.user}>
+                <View style={{height: 130, flexDirection: 'row', alignItems: 'center', marginLeft:15}}>
+                  <View style={{width: 100}}>
+                      <Image source={require('./images/DS_profile.png')} 
+                        style={{width: 80, height: 80, marginLeft: 10}}/>
+                  </View>
+                  <View style={{marginLeft: 15, justifyContent: 'center'}}>
+                      <Text style={{fontSize: 25}}>닉네임</Text>
+                      <Text style={{color: 'gray', fontSize: 15}}>이름:</Text>
+                      <Text style={{color: 'gray', fontSize: 15}}>학번:</Text>
+                  </View>
+                </View>
+              </View>
+              <View style={styles.list}>
+                  <Text style={{color: 'white', fontSize: 17}}>판매내역</Text>
               </View>
             </View>
-            <View style={{flex: 1, marginLeft: 10}}>
-              <Text style={{fontSize: 30}}>닉네임</Text>
-              <Text style={{color: 'gray', fontSize: 15}}>이름:</Text>
-              <Text style={{color: 'gray', fontSize: 15}}>학번:</Text>
-            </View>
-          </View>
-          <View style={{height: 50, flexDirection: 'row', alignItems: 'center'}}>
-            <View style={{flex: 1, height: 50, flexDirection: 'row', borderWidth: 0.5, borderLeftWidth: 0, borderRightWidth: 0, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
-              <Image source={require('./images/list.png')} style={{width: 30, height: 25}}/>
-              <Text style={{marginLeft: 5}}>내가 쓴 글</Text>
-            </View>
-          </View>
-        </View>
         )
     }
 }
 const styles=StyleSheet.create({
-    user:{
-        margin:15,
-        backgroundColor:'white',
-      }
+  user:{
+    backgroundColor:'white',
+  },
+  list:{
+    height: 40,
+    alignItems: 'center', 
+    backgroundColor: '#303D74',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  }
 })

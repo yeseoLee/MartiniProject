@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {View, Text, StyleSheet,Image,ScrollView,Alert,TouchableOpacity,Switch,FlatList} from 'react-native';
-import{Header,Body,Container}from 'native-base'
-import { Ionicons } from '@expo/vector-icons';
+import {View, Text, StyleSheet, Alert, TouchableOpacity, FlatList} from 'react-native';
+import {Container}from 'native-base'
+import {Ionicons} from '@expo/vector-icons';
 import * as MailComposer from 'expo-mail-composer';
 import uuid from 'react-uuid'
 import BookScreen from'./book';
@@ -70,26 +70,26 @@ const DATA=[
                           ListHeaderComponent={<Text></Text>}
                           ListFooterComponent={<Text></Text>}/>
               </View>
-              <View style={{height: 50, flexDirection: 'row', alignItems: 'center',margin:15}}>
-                <View style={{flex: 1, height: 50, flexDirection: 'column', borderWidth: 0.5, borderLeftWidth: 0, borderRightWidth: 0, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
+              <View style={styles.bottombar}>
+                <View style={styles.bottomitem}>
                   <TouchableOpacity>
-                    <Ionicons name = 'log-out-outline' size = {26} />
+                    <Ionicons name = 'log-out-outline' size = {23} />
                   </TouchableOpacity>
-                  <Text>로그아웃</Text>
+                  <Text style={{fontSize: 13}}>로그아웃</Text>
                 </View>
-                <View style={{flex: 1, height: 50, flexDirection: 'column', borderWidth: 0.5, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
-                 <TouchableOpacity>
-                  <Ionicons name = 'alert-outline' size = {26} onPress={() => this.props.navigation.navigate('이용안내')}/>
-                 </TouchableOpacity>
-                 <Text>이용안내</Text>
+                <View style={styles.bottomitem}>
+                  <TouchableOpacity>
+                    <Ionicons name = 'information-circle-outline' size = {23} onPress={() => this.props.navigation.navigate('이용안내')}/>
+                  </TouchableOpacity>
+                  <Text style={{fontSize: 13}}>이용안내</Text>
+                </View>
+                <View style={styles.bottomitem}>
+                  <TouchableOpacity>
+                    <Ionicons name = 'help-outline' size = {23} onPress={this.getemail} />
+                  </TouchableOpacity>
+                  <Text style={{fontSize: 13}}>Q&A</Text>
+                </View>
               </View>
-              <View style={{flex: 1, height: 50, flexDirection: 'column', borderWidth: 0.5, borderLeftWidth: 0, borderRightWidth: 0, borderColor: 'gray', alignItems: 'center', justifyContent: 'center'}}>
-                <TouchableOpacity>
-                  <Ionicons name = 'help-outline' size = {26} onPress={this.getemail} />
-                </TouchableOpacity>
-                <Text>Q&A</Text>
-              </View>
-            </View>
           </View>
         </Container>
       );
@@ -100,6 +100,22 @@ const DATA=[
     container: {
       flex: 1,
       padding: 5,
-      //backgroundColor:'#303D73',
     },
+    bottombar: {
+      height: 50, 
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderColor : '#d6d6d6',
+      borderWidth: 0.5, 
+      borderLeftWidth: 0,
+      borderRightWidth: 0,
+      borderBottomWidth: 0,
+    },
+    bottomitem:{
+      flex: 1,
+      height: 40, 
+      flexDirection: 'column', 
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
   })

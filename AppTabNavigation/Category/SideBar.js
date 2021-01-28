@@ -6,17 +6,16 @@ import {View, Image, StyleSheet, ScrollView} from 'react-native';
 export default class SideBar extends React.Component{
   render() {
     return(
-    <ScrollView>
-      <SafeAreaView
-        style={styles.container}
-        forceInset={{ top: 'always', horizontal: 'never' }}
-      > 
-        <View style = {{justifyContent:'center', alignItems:'center'}}>
-          <Image style = {styles.bookImage} source = {require('../../assets/DS_Logo.png')}/>
-        </View>
-        <DrawerItems {...this.props} />
-      </SafeAreaView>
-    </ScrollView>
+      <ScrollView>
+        <SafeAreaView
+          style={styles.container}
+          forceInset={{ top: 'always', horizontal: 'never' }}> 
+          <View style = {{justifyContent:'center', alignItems:'center'}}>
+            <Image style = {styles.bookImage} source = {require('../../assets/DS_Logo.png')}/>
+          </View>
+          <DrawerItems {...this.props} />
+        </SafeAreaView>
+      </ScrollView>
     )}
 };
 

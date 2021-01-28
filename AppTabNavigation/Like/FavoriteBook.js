@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, StyleSheet, View, TouchableOpacity, Image, Alert} from 'react-native';
-import { Ionicons,FontAwesome,Entypo,FontAwesome5,Octicons } from '@expo/vector-icons';
+import { Ionicons,FontAwesome} from '@expo/vector-icons';
 import * as SMS from 'expo-sms';
 
 import Book from '../BookTab';

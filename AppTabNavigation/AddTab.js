@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet,TextInput, Alert, TouchableOpacity,ScrollView,Button} from 'react-native';
+import {View, Text, StyleSheet,TextInput, Alert,ScrollView,Button} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import {Header, Left, Body} from 'native-base';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -73,7 +73,7 @@ export default class AddTab extends React.Component{
             <View>
             <Header style={styles.header}>
                 <Left>
-                    <Text style={styles.headertext}>  글쓰기</Text>
+                    <Text style={styles.headertext}>글쓰기</Text>
                 </Left>
                 <Body></Body>
             </Header>
@@ -94,10 +94,7 @@ export default class AddTab extends React.Component{
                         placeholderStyle={{color: '#888'}}
 
                         containerStyle={{height: 45}}
-                    /*style={{backgroundColor: 'white'}}*/
                         itemStyle={{justifyContent: 'flex-start'}}
-                    //selectItemStyle={{justifyContent: 'center'}, {color: 'Black'}}
-                   /* dropDownStyle={{backgroundColor: 'white'}}*/
                         onChangeItem={item => console.log(item.label, item.value)}
                    />
                                             
@@ -106,36 +103,37 @@ export default class AddTab extends React.Component{
                         placeholder={"도서명"}
                         onChangeText={this.changeText1}
                         
-                        />
+                    />
+
                     <TextInput 
                         style={styles.textForm} 
                         placeholder={"출판사"}
                         onChangeText={this.changeText2}
-                        />
+                    />
                
                     <TextInput 
                         style={styles.textForm} 
                         placeholder={"수업 과목"}
                         onChangeText={this.changeText3}
-                        />
+                    />
                 
                     <TextInput 
                         style={styles.textForm} 
                         placeholder={"판매 가격"}
                         onChangeText={this.changeText4}
-                        />
+                    />
 
                     <TextInput 
                         style={styles.textForm} 
                         placeholder={"훼손 상태"}
                         onChangeText={this.changeText5}
-                        />
+                    />
                 
                     <TextInput 
                         style={styles.textForm} 
                         placeholder={"연락처"}
                         onChangeText={this.changeText6}
-                        />
+                    />
                 </View>
                 <View style={styles.Image}>
 
@@ -151,7 +149,7 @@ export default class AddTab extends React.Component{
             </View>
         </ScrollView>
         </View>
-        ); // 21.01.15 왜 에러가 뜰까...
+        );
     }
 }
 
