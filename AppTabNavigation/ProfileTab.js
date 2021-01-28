@@ -13,7 +13,7 @@ const AppNavigator=createStackNavigator({
     headerTintColor:'#303D74',
     headerTitleStyle:{
       fontWeight:'normal',
-      justifyContent: 'flex-start'
+      justifyContent: 'flex-start',
     }
   }
 });

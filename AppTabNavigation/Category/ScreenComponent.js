@@ -10,16 +10,7 @@ export default class ScreenComponent extends React.Component{
     constructor() {
         super();
     }
-
-    getSMS = async() => {
-        try{
-          await SMS.isAvailableAsync();
-          SMS.sendSMSAsync(['01040941308'], '군-바');
-        }catch(error){
-          Alert.alert("SMS 기능 사용 불가", "ㅠ-ㅠ");
-        }
-    };
-
+    
     alertDelete = () => {
         Alert.alert("관심목록", "추가되었습니다")
     }
@@ -42,14 +33,15 @@ export default class ScreenComponent extends React.Component{
                 </Header>
                 <View style={styles.content}>
                     <FlatList data = {this.props.DATA} renderItem={({item}) =>
-                            <BookItem name={item.title}
-                                    className={item.className}
-                                    price={item.price}
-                                    img={item.img}
-                                    phone={item.phone}
-                                    publisher={item.publisher}
-                                    bookCondition = {item.bookCondition}
-                                    category={item.category}/>} />
+                        <BookItem 
+                            name={item.title}
+                            className={item.className}
+                            price={item.price}
+                            img={item.img}
+                            phone={item.phone}
+                            publisher={item.publisher}
+                            bookCondition = {item.bookCondition}
+                            category={item.category}/>}/>
                 </View>
             </Container>           
         )
@@ -72,9 +64,5 @@ const styles = StyleSheet.create({
     },
     content: {
         marginTop:10,
-        flex: 1,
-        paddingLeft:10,
-        paddingRight:10,
-        paddingBottom:30,
       }
 });

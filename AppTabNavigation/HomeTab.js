@@ -90,20 +90,10 @@ export default class HomeTab extends React.Component{
         this.props.navigation.openDrawer();
     }
 
-    getSMS = async() => {
-        try{
-          await SMS.isAvailableAsync();
-          SMS.sendSMSAsync(['01040941308'], '군-바');
-        }catch(error){
-          Alert.alert("SMS 기능 사용 불가", "ㅠ-ㅠ");
-        }
-    };
-
     getText = (textInput) => {
         this.setState({
             text:textInput
         })
-        // Alert.alert('"' + this.state.text + '"책을 검색하였습니다.')
     }
     printText = () => {
         Alert.alert('"' + this.state.text + '" 책을 검색하였습니다.')

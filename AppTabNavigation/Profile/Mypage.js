@@ -65,29 +65,29 @@ const DATA=[
             <UserScreen/>
               <View style={{flex:1}}> 
                 <FlatList data = {DATA}
-                          renderItem={({item}) => <BookScreen name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone} publisher={item.publisher}
-                          bookCondition = {item.bookCondition}/>} 
-                          ListHeaderComponent={<Text></Text>}
-                          ListFooterComponent={<Text></Text>}/>
+                  renderItem={({item}) => <BookScreen name={item.title} className={item.className} price={item.price} img={item.img} phone={item.phone} publisher={item.publisher}
+                  bookCondition = {item.bookCondition}/>} 
+                  ListHeaderComponent={<Text></Text>}
+                  ListFooterComponent={<Text></Text>}/>
               </View>
               <View style={styles.bottombar}>
                 <View style={styles.bottomitem}>
                   <TouchableOpacity>
-                    <Ionicons name = 'log-out-outline' size = {23} />
+                    <Ionicons name = 'log-out-outline' size = {23} sytle={{alignItems: 'center'}}/>
+                    <Text style={{fontSize: 13}, {alignItems: 'center'}}>로그아웃</Text>
                   </TouchableOpacity>
-                  <Text style={{fontSize: 13}}>로그아웃</Text>
+                </View>
+                <View style={styles.bottomitem} >
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('이용안내')}>
+                    <Ionicons name = 'information-circle-outline' size = {23} sytle={styles.icon}/>
+                    <Text style={{fontSize: 13}, {alignItems: 'center'}}>이용안내</Text>
+                  </TouchableOpacity>
                 </View>
                 <View style={styles.bottomitem}>
                   <TouchableOpacity>
-                    <Ionicons name = 'information-circle-outline' size = {23} onPress={() => this.props.navigation.navigate('이용안내')}/>
+                    <Ionicons name = 'help-outline'  size = {23} sytle={styles.icon}/>
+                    <Text style={{fontSize: 13}, {alignItems: 'center'}}>Q&A</Text>
                   </TouchableOpacity>
-                  <Text style={{fontSize: 13}}>이용안내</Text>
-                </View>
-                <View style={styles.bottomitem}>
-                  <TouchableOpacity>
-                    <Ionicons name = 'help-outline' size = {23} onPress={this.getemail} />
-                  </TouchableOpacity>
-                  <Text style={{fontSize: 13}}>Q&A</Text>
                 </View>
               </View>
           </View>
@@ -117,5 +117,8 @@ const DATA=[
       flexDirection: 'column', 
       alignItems: 'center',
       justifyContent: 'center'
+    },
+    icon:{
+      alignItems: 'center',
     }
   })

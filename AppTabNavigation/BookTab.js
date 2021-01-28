@@ -44,7 +44,6 @@ export default class BookTab extends React.Component{
     alertDelete = () => {
         Alert.alert("관심목록", "삭제되었습니다")
     }
-
     
     render() {
         return(
@@ -66,7 +65,7 @@ export default class BookTab extends React.Component{
                         <Image style={styles.bookImage} source = {this.props.img}/>
                     </View>
                     <View style={{justifyContent:'center'}}>
-                        <Text style={{fontSize: 20, marginBottom:10}}>{this.props.bookName}</Text> 
+                        <Text style={{fontSize: 20, marginBottom:10}}>{this.props.name}</Text> 
                             <View style={styles.sell}>
                                 <View style={styles.inforName}>
                                     <Text style={styles.infor1}>출판사</Text>

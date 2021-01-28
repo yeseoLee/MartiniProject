@@ -32,7 +32,7 @@ export default class BookItem extends React.Component{
     getSMS = async() => {
         try{
           await SMS.isAvailableAsync();
-          SMS.sendSMSAsync(this.props.phone, 'App Testing\n안녕하세요! 판매중이신 "' + this.props.BookName + '" 책을 구입하고 싶어요!!'); //고정된 메세지를 보낼 수 있게 한다
+          SMS.sendSMSAsync(this.props.phone, 'App Testing\n안녕하세요! 판매중이신 "' + this.props.name + '" 책을 구입하고 싶어요!!'); //고정된 메세지를 보낼 수 있게 한다
         }catch(error){
           Alert.alert("SMS 기능 사용 불가", "ㅠ-ㅠ");
         }
@@ -60,29 +60,30 @@ export default class BookItem extends React.Component{
 
     render() {
         return (
-            <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:1}}>                
+            <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:0.5}}>                
                 <TouchableOpacity style={styles.ItemStyle} onPress={this.openModal.bind(this)}>
-                    <Book visible={this.state.modalVisible}
-                    closeModal = {this.closeModal.bind(this)}
-                    bookName={this.props.name}
-                    className={this.props.className}
-                    price={this.props.price}
-                    publisher={this.props.publisher}
-                    bookCondition={this.props.bookCondition}
-                    img = {this.props.img}
-                    phone = {this.props.phone}
-                    category={this.props.category}/>
+                    <Book
+                        visible={this.state.modalVisible}
+                        closeModal = {this.closeModal.bind(this)}
+                        name={this.props.name}
+                        className={this.props.className}
+                        price={this.props.price}
+                        publisher={this.props.publisher}
+                        bookCondition={this.props.bookCondition}
+                        img = {this.props.img}
+                        phone = {this.props.phone}
+                        category={this.props.category}/>
 
                     <Image style={styles.bookImage} source={this.props.img} />
-                    <View style={styles.bookDescribe}>
-                        <Text style={styles.bookDescribe2}>{this.props.name}</Text>
+                    <View style={{ width:180,  flexDirection:'column'}}>
+                        <Text style={styles.bookDescribeTitle}>{this.props.name}</Text>
                         <View style={styles.icontext}>
-                            <FontAwesome name = 'book' paddingRight='10'/>
-                            <Text style={styles.bookDescribe3}>{this.props.className}</Text>
+                            <FontAwesome name = 'book'  paddingRight='10'/>
+                            <Text style={ styles.bookDescribe}>  {this.props.className}</Text>
                         </View>
                         <View style={styles.icontext}>
-                            <FontAwesome  name = 'won' paddingRight='10'/> 
-                            <Text style={styles.bookDescribe3}>{this.props.price}</Text>
+                            <FontAwesome name = 'won'  paddingRight='10'/> 
+                            <Text style={ styles.bookDescribe}>  {this.props.price}</Text>
                         </View>
                     </View>
                     <View style={styles.button}>
@@ -90,7 +91,7 @@ export default class BookItem extends React.Component{
                             <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
                         </TouchableOpacity>
                     </View>
-            </TouchableOpacity>
+                </TouchableOpacity>
            </View>
         );
     }
@@ -114,22 +115,19 @@ const styles = StyleSheet.create({
         paddingBottom:30,
     },
     ItemStyle:{
+        borderBottomColor:'lightgrey',
+        borderBottomWidth:0.5,
         alignItems: 'center',
-        justifyContent:'flex-start',
         flexDirection: 'row',
         paddingLeft: 10,
     },    
     bookImage:{
+        marginRight:20,
         width: 90,
         marginBottom:5,
         height:120,
     },
-    bookDescribe:{
-        paddingLeft:20,
-        flexDirection:'column',
-        fontSize: 20
-    },
-    bookDescribe2:{
+    bookDescribeTitle:{
         fontSize: 20,
         marginBottom:10
     },
@@ -140,8 +138,8 @@ const styles = StyleSheet.create({
     },
     button:{
         paddingRight:5,
-        flex:0.9,
         alignItems:'flex-end',
+        flex:0.9,
     },
     icontext:{
         flexDirection:'row',

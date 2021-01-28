@@ -54,32 +54,42 @@ export default class FavoriteBook extends React.Component{
 
     render() {
         return (
-        <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:0.5}}>                
-            <TouchableOpacity style={styles.ItemStyle} onPress={this.openModal.bind(this)}>
-                    <Book visible={this.state.modalVisible} closeModal = {this.closeModal.bind(this)} bookName={this.props.name} className={this.props.className} price={this.props.price}
-                    publisher={this.props.publisher} bookCondition={this.props.bookCondition} img = {this.props.img} category={this.props.category} phone={this.props.phone} />
+            <View style={{ borderBottomColor:'lightgrey', borderBottomWidth:0.5}}>                
+                <TouchableOpacity style={styles.ItemStyle} onPress={this.openModal.bind(this)}>
+                    <Book 
+                        visible={this.state.modalVisible}
+                        closeModal = {this.closeModal.bind(this)}
+                        name={this.props.name}
+                        className={this.props.className}
+                        price={this.props.price}
+                        publisher={this.props.publisher}
+                        bookCondition={this.props.bookCondition}
+                        img = {this.props.img}
+                        phone = {this.props.phone}
+                        category={this.props.category}/>
+                            
                     <Image style={styles.bookImage} source={this.props.img} />
-                    <View style={{ width:200,  flexDirection:'column'}}>
+                    <View style={{ width:180,  flexDirection:'column'}}>
                         <Text style={styles.bookDescribeTitle}>{this.props.name}</Text>
                         <View style={styles.icontext}>
                             <FontAwesome name = 'book'  paddingRight='10'/>
-                            <Text style={ styles.bookDescribe}>{this.props.className}</Text>
+                            <Text style={ styles.bookDescribe}>  {this.props.className}</Text>
                         </View>
                         <View style={styles.icontext}>
                             <FontAwesome name = 'won'  paddingRight='10'/> 
-                            <Text style={ styles.bookDescribe}>{this.props.price}</Text>
-                       </View>
+                            <Text style={ styles.bookDescribe}>  {this.props.price}</Text>
+                        </View>
                     </View>
-                    <View style={styles.buttonStyle}>
-                        <TouchableOpacity>
+                    <View style={styles.button}>
+                        <TouchableOpacity style={{marginBottom: 10}}>
                             <Ionicons name = 'heart' color = {this.state.heartColor} size = {30} onPress={this.updateHeartColor.bind(this)}/>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={this.getSMS.bind(this)}>    
                             <Ionicons name = 'chatbox-ellipses-outline' size = {30}/>
                         </TouchableOpacity>
                     </View>
-            </TouchableOpacity>
-        </View>
+                </TouchableOpacity>
+            </View>
         );
     }
 }
@@ -102,12 +112,12 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginBottom:10
     },
-    bookDescribe:{
+    bookDescribe3:{
         marginLeft:10,
         fontSize: 15,
         marginBottom:3
     },
-    buttonStyle:{
+    button:{
         paddingRight:5,
         alignItems:'flex-end',
         flex:0.9,

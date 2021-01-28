@@ -12,7 +12,12 @@ import Loading from '../Components/Loading';
 
 //하단 탭 네비게이션
 const AppTabNavigator = createBottomTabNavigator({
-    Home: {screen:HomeTab},
+    Home: {screen:HomeTab,
+        navigationOptions : ({navigation}) => ({
+            tabBarOnPress: () => {
+                navigation.navigate("Home");
+            }
+        })},
     Add: {screen:AddTab}, 
     Like: {screen:LikeTab},  
     Profile: {screen:ProfileTab}, 
